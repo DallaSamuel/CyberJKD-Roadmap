@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberJKD Roadmap</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v1.0</div>
+    <div class="title">Cyber<span>JKD</span></div>
+    <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
+    <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
+  </div>
+
+  <div class="progress-strip">
+    <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.0s"></div>
+    <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.1s"></div>
+    <div class="strip-segment active" style="--seg-color:#00ccff;--seg-delay:1.2s"></div>
+    <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.3s"></div>
+    <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.4s"></div>
+    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.5s"></div>
+    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.6s"></div>
+    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.7s"></div>
+    <div class="strip-segment active" style="--seg-color:#ffcc00;--seg-delay:1.8s"></div>
+    <div class="strip-segment active" style="--seg-color:#ffcc00;--seg-delay:1.9s"></div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- PHASE 1 -->
+    <div class="phase">
+      <div class="phase-inner" style="--phase-color:#00aaff" onclick="toggle(this)">
+        <div class="phase-header">
+          <div class="phase-number">PHASE 01</div>
+          <div class="phase-title-block">
+            <div class="phase-title">SYSTEMS FOUNDATION</div>
+            <div class="phase-identity">// Identity: Infrastructure Thinker</div>
+          </div>
+          <div class="phase-timeline-badge">MONTHS 0–6</div>
+          <div class="expand-icon">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-divider"></div>
+          <div class="section-label">// Core Focus Areas</div>
+          <div class="focus-grid">
+            <div class="focus-item"><span class="focus-dot"></span>Operating Systems (deep)</div>
+            <div class="focus-item"><span class="focus-dot"></span>Networking fundamentals</div>
+            <div class="focus-item"><span class="focus-dot"></span>Linux comfort &amp; CLI</div>
+            <div class="focus-item"><span class="focus-dot"></span>Python scripting basics</div>
+            <div class="focus-item"><span class="focus-dot"></span>Bash automation</div>
+            <div class="focus-item"><span class="focus-dot"></span>File systems &amp; permissions</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Build These Projects</div>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-text">Harden a Linux VM + document a full checklist</div>
+                <div class="project-sub">→ disable services, configure firewall, lock SSH, write the full report</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">02</div>
+              <div>
+                <div class="project-text">Design a segmented lab network</div>
+                <div class="project-sub">→ VLANs, firewall rules, draw topology, document all configurations</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">03</div>
+              <div>
+                <div class="project-text">Wireshark packet analysis report</div>
+                <div class="project-sub">→ capture live traffic, identify protocols, flag anomalies, write findings</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">04</div>
+              <div>
+                <div class="project-text">Write a Python log parser script</div>
+                <div class="project-sub">→ parse auth logs, detect failed logins, output a clean summary</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">05</div>
+              <div>
+                <div class="project-text">Simulate brute force + analyze the logs</div>
+                <div class="project-sub">→ controlled lab environment only — study what it looks like in the logs</div>
+              </div>
+            </div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Target Certification</div>
+          <div class="cert-box">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <div class="cert-name">Security+ OR CCNA</div>
+              <div class="cert-note">ONE cert only if budget allows. Skill first. Not both immediately.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase">
+      <div class="phase-inner" style="--phase-color:#00ddff" onclick="toggle(this)">
+        <div class="phase-header">
+          <div class="phase-number">PHASE 02</div>
+          <div class="phase-title-block">
+            <div class="phase-title">DEFENSIVE MATURITY</div>
+            <div class="phase-identity">// Identity: Detection-Aware Engineer</div>
+          </div>
+          <div class="phase-timeline-badge">MONTHS 6–12</div>
+          <div class="expand-icon">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-divider"></div>
+          <div class="section-label">// Core Focus Areas</div>
+          <div class="focus-grid">
+            <div class="focus-item"><span class="focus-dot"></span>Windows event logs</div>
+            <div class="focus-item"><span class="focus-dot"></span>Linux system logs</div>
+            <div class="focus-item"><span class="focus-dot"></span>SIEM (Splunk / Security Onion)</div>
+            <div class="focus-item"><span class="focus-dot"></span>Incident response workflow</div>
+            <div class="focus-item"><span class="focus-dot"></span>MITRE ATT&CK framework</div>
+            <div class="focus-item"><span class="focus-dot"></span>Threat modeling</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Build These Projects</div>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-text">Forward logs to a SIEM + build a dashboard</div>
+                <div class="project-sub">→ ingest from Linux/Windows, visualize events, create alert rules</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">02</div>
+              <div>
+                <div class="project-text">Create a custom detection rule</div>
+                <div class="project-sub">→ write a Splunk/Sigma rule that catches a real-world attack pattern</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">03</div>
+              <div>
+                <div class="project-text">Write a full incident response report</div>
+                <div class="project-sub">→ timeline, IOCs, affected systems, containment steps, lessons learned</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">04</div>
+              <div>
+                <div class="project-text">Simulate a phishing scenario in lab</div>
+                <div class="project-sub">→ craft fake email, analyze headers, map the technique to MITRE ATT&CK</div>
+              </div>
+            </div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Key Mindset Shift</div>
+          <div class="cert-box">
+            <div class="cert-icon">🧠</div>
+            <div>
+              <div class="cert-name">THINK OPERATIONALLY</div>
+              <div class="cert-note">Every action you study — ask how it would be detected.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase">
+      <div class="phase-inner" style="--phase-color:#00ffcc" onclick="toggle(this)">
+        <div class="phase-header">
+          <div class="phase-number">PHASE 03</div>
+          <div class="phase-title-block">
+            <div class="phase-title">CLOUD ENTRY</div>
+            <div class="phase-identity">// Identity: Cloud-Aware Defender</div>
+          </div>
+          <div class="phase-timeline-badge">MONTHS 9–15</div>
+          <div class="expand-icon">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-divider"></div>
+          <div class="section-label">// Prerequisite Check</div>
+          <div class="cert-box" style="margin-bottom:20px">
+            <div class="cert-icon">⚠️</div>
+            <div>
+              <div class="cert-name">ONLY AFTER NETWORKING FEELS SOLID</div>
+              <div class="cert-note">Do not start cloud until Phase 1 fundamentals are fully internalized.</div>
+            </div>
+          </div>
+          <div class="section-label">// Core Focus Areas</div>
+          <div class="focus-grid">
+            <div class="focus-item"><span class="focus-dot"></span>AWS fundamentals</div>
+            <div class="focus-item"><span class="focus-dot"></span>IAM (deep)</div>
+            <div class="focus-item"><span class="focus-dot"></span>VPC + security groups</div>
+            <div class="focus-item"><span class="focus-dot"></span>CloudTrail logging</div>
+            <div class="focus-item"><span class="focus-dot"></span>EC2 hardening</div>
+            <div class="focus-item"><span class="focus-dot"></span>Shared responsibility model</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Build These Projects</div>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-text">Deploy EC2 + restrict ports properly</div>
+                <div class="project-sub">→ configure security groups, disable unused ports, document every config decision</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">02</div>
+              <div>
+                <div class="project-text">Create least-privilege IAM policies</div>
+                <div class="project-sub">→ build users, roles, and policies from scratch — zero over-permissioning</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">03</div>
+              <div>
+                <div class="project-text">Enable CloudTrail + analyze logs</div>
+                <div class="project-sub">→ set up trail, generate events, detect suspicious API calls in the log</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">04</div>
+              <div>
+                <div class="project-text">Document the shared responsibility model</div>
+                <div class="project-sub">→ map what AWS owns vs what you own across 3 different service types</div>
+              </div>
+            </div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Target Certification</div>
+          <div class="cert-box">
+            <div class="cert-icon">☁️</div>
+            <div>
+              <div class="cert-name">AWS CLOUD PRACTITIONER</div>
+              <div class="cert-note">Optional. Only after hands-on. Do not cert before you build.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase">
+      <div class="phase-inner" style="--phase-color:#ff3355" onclick="toggle(this)">
+        <div class="phase-header">
+          <div class="phase-number">PHASE 04</div>
+          <div class="phase-title-block">
+            <div class="phase-title">CONTROLLED OFFENSIVE</div>
+            <div class="phase-identity">// Identity: Precision Striker</div>
+          </div>
+          <div class="phase-timeline-badge">MONTHS 12–18</div>
+          <div class="expand-icon">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-divider"></div>
+          <div class="section-label">// Core Focus Areas</div>
+          <div class="focus-grid">
+            <div class="focus-item"><span class="focus-dot"></span>eJPT certification path</div>
+            <div class="focus-item"><span class="focus-dot"></span>HackTheBox labs</div>
+            <div class="focus-item"><span class="focus-dot"></span>Active Directory attacks</div>
+            <div class="focus-item"><span class="focus-dot"></span>Web exploitation basics</div>
+            <div class="focus-item"><span class="focus-dot"></span>Privilege escalation</div>
+            <div class="focus-item"><span class="focus-dot"></span>Professional report writing</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Build These Projects</div>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-text">Complete eJPT + document lab methodology</div>
+                <div class="project-sub">→ write up every machine like a real professional pentest report</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">02</div>
+              <div>
+                <div class="project-text">Build an Active Directory home lab</div>
+                <div class="project-sub">→ set up AD, attack it, then detect those attacks in the event logs</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">03</div>
+              <div>
+                <div class="project-text">Complete 5 HTB machines + write reports</div>
+                <div class="project-sub">→ methodology, findings, exploitation steps, remediation advice for each</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">04</div>
+              <div>
+                <div class="project-text">Write a privilege escalation cheatsheet</div>
+                <div class="project-sub">→ Linux + Windows paths, detection methods, how defenders catch each one</div>
+              </div>
+            </div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// The One Rule For This Phase</div>
+          <div class="cert-box">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <div class="cert-name">ALWAYS ASK: HOW WOULD THIS BE DETECTED?</div>
+              <div class="cert-note">Every offensive technique studied through a defensive lens first.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="phase">
+      <div class="phase-inner" style="--phase-color:#aa55ff" onclick="toggle(this)">
+        <div class="phase-header">
+          <div class="phase-number">PHASE 05</div>
+          <div class="phase-title-block">
+            <div class="phase-title">CLOUD SECURITY ENGINEERING</div>
+            <div class="phase-identity">// Identity: Builder of Secure Systems</div>
+          </div>
+          <div class="phase-timeline-badge">MONTHS 18–24</div>
+          <div class="expand-icon">▾</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-divider"></div>
+          <div class="section-label">// Core Focus Areas</div>
+          <div class="focus-grid">
+            <div class="focus-item"><span class="focus-dot"></span>Advanced IAM policies</div>
+            <div class="focus-item"><span class="focus-dot"></span>KMS encryption</div>
+            <div class="focus-item"><span class="focus-dot"></span>Container security</div>
+            <div class="focus-item"><span class="focus-dot"></span>CI/CD pipeline security</div>
+            <div class="focus-item"><span class="focus-dot"></span>Terraform basics</div>
+            <div class="focus-item"><span class="focus-dot"></span>DevSecOps fundamentals</div>
+            <div class="focus-item"><span class="focus-dot"></span>Secure deployment pipelines</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Build These Projects</div>
+          <div class="projects-list">
+            <div class="project-item">
+              <div class="project-num">01</div>
+              <div>
+                <div class="project-text">Build a secure cloud deployment with Terraform</div>
+                <div class="project-sub">→ infrastructure as code, security controls baked in from the start</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">02</div>
+              <div>
+                <div class="project-text">Harden a container environment (Docker / K8s)</div>
+                <div class="project-sub">→ image scanning, runtime policies, network policies, secrets management</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">03</div>
+              <div>
+                <div class="project-text">Build a CI/CD pipeline with security gates</div>
+                <div class="project-sub">→ SAST scanning, dependency checks, secrets detection, policy enforcement</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">04</div>
+              <div>
+                <div class="project-text">Implement KMS encryption across a deployment</div>
+                <div class="project-sub">→ key rotation, envelope encryption, full audit trail via CloudTrail</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">05</div>
+              <div>
+                <div class="project-text">Write a cloud security architecture document</div>
+                <div class="project-sub">→ threat model + controls map for a fictional company's AWS environment</div>
+              </div>
+            </div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Long-Term Cert Targets</div>
+          <div class="cert-box">
+            <div class="cert-icon">🏆</div>
+            <div>
+              <div class="cert-name">AWS Security Specialty / OSCP</div>
+              <div class="cert-note">Long-range targets. Built on deep real skill — never shortcuts.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end timeline -->
+
+  <!-- Employment Milestone -->
+  <div class="milestone-card">
+    <div class="milestone-title">🎯 &nbsp; EMPLOYMENT MILESTONE — MONTHS 12–18</div>
+    <div class="milestone-roles">
+      <div class="role-tag">SOC Intern</div>
+      <div class="role-tag">Security Intern</div>
+      <div class="role-tag">Cloud Intern</div>
+      <div class="role-tag">Junior IT / Security Hybrid</div>
+    </div>
+    <div class="milestone-note">
+      You don't wait until Month 24. You start applying when Phase 2 feels solid.<br>
+      Portfolio on GitHub. Lab reports documented. Projects shipped. That is your resume.
+    </div>
+  </div>
+
+  <!-- Core Rule -->
+  <div class="core-rule">
+    <div class="rule-title">⚠ &nbsp; THE ONE RULE THAT MAKES OR BREAKS THIS</div>
+    <div class="rule-text">
+      Do not jump phases because something <strong>looks cool today</strong>.<br>
+      No <strong>"cloud looks interesting right now."</strong> &nbsp; No <strong>"I want malware."</strong> &nbsp; No <strong>"maybe bug bounty."</strong><br><br>
+      <strong>Foundation first. Then scale. That is the whole game.</strong>
+    </div>
+  </div>
+
+</div>
+</body>
+
+<script src="script.js"></script>
+
+</html>
