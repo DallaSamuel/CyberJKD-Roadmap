@@ -5,12 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberJKD Roadmap</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  
+</style>
 </head>
 <body>
 <div class="container">
 
   <div class="header">
-    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v1.0</div>
+    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v1.1</div>
     <div class="title">Cyber<span>JKD</span></div>
     <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
     <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
@@ -57,20 +60,34 @@
           <div class="phase-divider"></div>
           <div class="section-label">// Build These Projects</div>
           <div class="projects-list">
-            <div class="project-item">
+
+            <!-- PROJECT 01 — DONE x2 -->
+            <div class="project-item done">
               <div class="project-num">01</div>
               <div>
                 <div class="project-text">Harden a Linux VM + document a full checklist</div>
                 <div class="project-sub">→ disable services, configure firewall, lock SSH, write the full report</div>
+                <div class="done-badges">
+                  <span class="done-badge">✓ COMPLETED — MANUAL (WSL2)</span>
+                  <span class="done-badge">✓ COMPLETED — AUTOMATION SCRIPT</span>
+                  <span class="done-badge">⟳ REDO ON KALI VM — PENDING</span>
+                </div>
               </div>
             </div>
-            <div class="project-item">
+
+            <!-- PROJECT 02 — DONE -->
+            <div class="project-item done">
               <div class="project-num">02</div>
               <div>
                 <div class="project-text">Design a segmented lab network</div>
                 <div class="project-sub">→ VLANs, firewall rules, draw topology, document all configurations</div>
+                <div class="done-badges">
+                  <span class="done-badge">✓ COMPLETED — APR 25 2026</span>
+                </div>
               </div>
             </div>
+
+            <!-- PROJECT 03 -->
             <div class="project-item">
               <div class="project-num">03</div>
               <div>
@@ -78,6 +95,8 @@
                 <div class="project-sub">→ capture live traffic, identify protocols, flag anomalies, write findings</div>
               </div>
             </div>
+
+            <!-- PROJECT 04 -->
             <div class="project-item">
               <div class="project-num">04</div>
               <div>
@@ -85,6 +104,8 @@
                 <div class="project-sub">→ parse auth logs, detect failed logins, output a clean summary</div>
               </div>
             </div>
+
+            <!-- PROJECT 05 -->
             <div class="project-item">
               <div class="project-num">05</div>
               <div>
@@ -92,16 +113,33 @@
                 <div class="project-sub">→ controlled lab environment only — study what it looks like in the logs</div>
               </div>
             </div>
+
           </div>
           <div class="phase-divider"></div>
-          <div class="section-label">// Target Certification</div>
+          <div class="section-label">// Target Certifications</div>
+          <div class="cert-box" style="margin-bottom:10px">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <div class="cert-name">ISC2 CC</div>
+              <div class="cert-note">First cert. Free exam. Start now alongside Phase 1 projects.</div>
+            </div>
+          </div>
           <div class="cert-box">
             <div class="cert-icon">🎯</div>
             <div>
-              <div class="cert-name">Security+ OR CCNA</div>
-              <div class="cert-note">ONE cert only if budget allows. Skill first. Not both immediately.</div>
+              <div class="cert-name">Security+</div>
+              <div class="cert-note">Target: Aug/Sep 2026. Skill first — cert follows the work.</div>
             </div>
           </div>
+
+          <div class="cert-box">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <div class="cert-name">CCNA</div>
+              <div class="cert-note">Target: Nov/Dec 2026. Skill first — cert follows the work.</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -160,9 +198,23 @@
                 <div class="project-sub">→ craft fake email, analyze headers, map the technique to MITRE ATT&CK</div>
               </div>
             </div>
+            <div class="project-item">
+              <div class="project-num">05</div>
+              <div>
+                <div class="project-text">Vulnerability Management lab</div>
+                <div class="project-sub">→ run Nessus/OpenVAS scan on lab VMs, triage findings, write remediation report</div>
+              </div>
+            </div>
           </div>
           <div class="phase-divider"></div>
-          <div class="section-label">// Key Mindset Shift</div>
+          <div class="section-label">// Target Certification</div>
+          <div class="cert-box" style="margin-bottom:10px">
+            <div class="cert-icon">🎯</div>
+            <div>
+              <div class="cert-name">SPLUNK CORE CERTIFIED USER</div>
+              <div class="cert-note">After SIEM projects are done. Cert follows the hands-on.</div>
+            </div>
+          </div>
           <div class="cert-box">
             <div class="cert-icon">🧠</div>
             <div>
@@ -236,14 +288,28 @@
                 <div class="project-sub">→ map what AWS owns vs what you own across 3 different service types</div>
               </div>
             </div>
+            <div class="project-item">
+              <div class="project-num">05</div>
+              <div>
+                <div class="project-text">Automated cloud lab deployment</div>
+                <div class="project-sub">→ deploy a basic AWS environment using scripts — EC2, VPC, security groups automated</div>
+              </div>
+            </div>
           </div>
           <div class="phase-divider"></div>
-          <div class="section-label">// Target Certification</div>
-          <div class="cert-box">
+          <div class="section-label">// Target Certifications</div>
+          <div class="cert-box" style="margin-bottom:10px">
             <div class="cert-icon">☁️</div>
             <div>
               <div class="cert-name">AWS CLOUD PRACTITIONER</div>
               <div class="cert-note">Optional. Only after hands-on. Do not cert before you build.</div>
+            </div>
+          </div>
+          <div class="cert-box">
+            <div class="cert-icon">☁️</div>
+            <div>
+              <div class="cert-name">AZ-104 AZURE ADMINISTRATOR</div>
+              <div class="cert-note">Phase 3 stretch target. Multi-cloud awareness for Cloud Security Engineers.</div>
             </div>
           </div>
         </div>
@@ -383,11 +449,18 @@
           </div>
           <div class="phase-divider"></div>
           <div class="section-label">// Long-Term Cert Targets</div>
-          <div class="cert-box">
+          <div class="cert-box" style="margin-bottom:10px">
             <div class="cert-icon">🏆</div>
             <div>
               <div class="cert-name">AWS Security Specialty / OSCP</div>
               <div class="cert-note">Long-range targets. Built on deep real skill — never shortcuts.</div>
+            </div>
+          </div>
+          <div class="cert-box">
+            <div class="cert-icon">🏆</div>
+            <div>
+              <div class="cert-name">AZ-400 DEVOPS ENGINEER</div>
+              <div class="cert-note">Phase 5 stretch. DevSecOps pipeline expertise for Cloud Security Engineering.</div>
             </div>
           </div>
         </div>
