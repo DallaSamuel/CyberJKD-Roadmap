@@ -426,6 +426,32 @@
     line-height: 1.8;
   }
 
+.project-item.done {
+    border-color: rgba(0,255,100,0.35);
+    background: rgba(0,255,100,0.04);
+  }
+  .project-item.done .project-text {
+    color: #a0c8a0;
+  }
+  .project-item.done .project-num {
+    color: #00cc66;
+  }
+  .done-badges {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .done-badge {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    background: rgba(0,204,102,0.12);
+    border: 1px solid rgba(0,204,102,0.4);
+    color: #00cc66;
+    padding: 2px 8px;
+    letter-spacing: 1px;
+  }
+
   .rule-text strong { color: var(--red); }
 
   ::-webkit-scrollbar { width: 6px; }
