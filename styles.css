@@ -26,6 +26,18 @@
   box-sizing: border-box;
 }
 
+.logo-container {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.1s;
+}
+.site-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 204, 0.4));
+}
+
 body {
   background: var(--bg);
   color: var(--text);
