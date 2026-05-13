@@ -503,6 +503,54 @@ body::before {
   color: #00ff88;
 }
 
+/* AI Security banner */
+.ai-security-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(170, 85, 255, 0.06);
+  border: 1px solid rgba(170, 85, 255, 0.35);
+  border-left: 3px solid var(--purple);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+}
+
+.ai-banner-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.ai-banner-title {
+  font-family: "Orbitron", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.ai-banner-note {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+/* AI project item variant */
+.project-item.ai-project {
+  border-color: rgba(170, 85, 255, 0.3);
+  background: rgba(170, 85, 255, 0.04);
+}
+
+.project-item.ai-project .project-num {
+  color: var(--purple);
+}
+
+.project-item.ai-project:hover {
+  border-color: var(--purple);
+}
+
 /* NEW — full card clickable link */
 .project-link {
   text-decoration: none;
