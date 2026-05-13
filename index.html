@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberJKD Roadmap</title>
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" href="CyberJKD.png">
+<link rel="icon" type="image/png" href="./img/CyberJKD.png">
 <style></style>
 </head>
 <body>
@@ -13,9 +13,9 @@
 
   <div class="header">
     <div class="logo-container">
-      <img src="CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
+      <img src="./img/CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
     </div>
-    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v2.0</div>
+    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v2.1</div>
     <div class="title">Cyber<span>JKD</span></div>
     <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
     <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
@@ -258,8 +258,8 @@
         <div class="phase-header">
           <div class="phase-number">PHASE 03</div>
           <div class="phase-title-block">
-            <div class="phase-title">CLOUD ENTRY — AZURE</div>
-            <div class="phase-identity">// Identity: Cloud-Aware Defender</div>
+            <div class="phase-title">CLOUD ENTRY — AZURE DEEP</div>
+            <div class="phase-identity">// Identity: Cloud-Aware Security Engineer</div>
           </div>
           <div class="phase-timeline-badge">MONTHS 9–15</div>
           <div class="expand-icon">▾</div>
@@ -276,14 +276,33 @@
           </div>
           <div class="section-label">// Azure Primary — Core Focus Areas</div>
           <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>Azure IAM (deep)</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure IAM + RBAC (deep)</div>
             <div class="focus-item"><span class="focus-dot"></span>Virtual Networks + NSGs</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Monitor + Defender</div>
-            <div class="focus-item"><span class="focus-dot"></span>Active Directory (Azure AD)</div>
-            <div class="focus-item"><span class="focus-dot"></span>VM hardening on Azure</div>
-            <div class="focus-item"><span class="focus-dot"></span>Shared responsibility model</div>
+            <div class="focus-item"><span class="focus-dot"></span>Microsoft Entra ID</div>
+            <div class="focus-item"><span class="focus-dot"></span>Privileged Identity Management</div>
+            <div class="focus-item"><span class="focus-dot"></span>Conditional Access policies</div>
+            <div class="focus-item"><span class="focus-dot"></span>Managed Identities</div>
+            <div class="focus-item"><span class="focus-dot"></span>Defender for Cloud</div>
+            <div class="focus-item"><span class="focus-dot"></span>Microsoft Sentinel + KQL</div>
+            <div class="focus-item"><span class="focus-dot"></span>Log Analytics workspace</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure Key Vault</div>
             <div class="focus-item"><span class="focus-dot"></span>Azure Policy + Compliance</div>
-            <div class="focus-item"><span class="focus-dot"></span>Key Vault + encryption</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure Purview</div>
+            <div class="focus-item"><span class="focus-dot"></span>Private Endpoints</div>
+            <div class="focus-item"><span class="focus-dot"></span>Zero Trust architecture</div>
+            <div class="focus-item"><span class="focus-dot"></span>Threat modeling mindset</div>
+            <div class="focus-item"><span class="focus-dot"></span>Shared responsibility model</div>
+          </div>
+          <div class="phase-divider"></div>
+          <div class="section-label">// Tools to Master</div>
+          <div class="tools-grid">
+            <div class="tool-item"><span class="tool-dot"></span>Microsoft Sentinel</div>
+            <div class="tool-item"><span class="tool-dot"></span>Defender for Cloud</div>
+            <div class="tool-item"><span class="tool-dot"></span>Log Analytics + KQL</div>
+            <div class="tool-item"><span class="tool-dot"></span>Microsoft Entra ID</div>
+            <div class="tool-item"><span class="tool-dot"></span>Azure Key Vault</div>
+            <div class="tool-item"><span class="tool-dot"></span>Azure Purview</div>
+            <div class="tool-item"><span class="tool-dot"></span>Logic Apps</div>
           </div>
           <div class="phase-divider"></div>
           <div class="section-label">// Build These Projects</div>
@@ -292,35 +311,42 @@
               <div class="project-num">01</div>
               <div>
                 <div class="project-text">Deploy Azure VM + harden it properly</div>
-                <div class="project-sub">→ configure NSGs, disable unused ports, lock down IAM, document every decision</div>
+                <div class="project-sub">→ configure NSGs, private endpoints, disable unused ports, lock IAM, document every decision</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">02</div>
               <div>
-                <div class="project-text">Build least-privilege Azure IAM policies</div>
-                <div class="project-sub">→ users, roles, RBAC from scratch — zero over-permissioning</div>
+                <div class="project-text">Provision Active Directory + configure Microsoft Entra ID</div>
+                <div class="project-sub">→ users, groups, RBAC, conditional access policies, MFA enforcement from scratch</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">03</div>
               <div>
-                <div class="project-text">Provision Active Directory on Azure + lab it</div>
-                <div class="project-sub">→ set up AD free tier, configure users/groups, document the structure</div>
+                <div class="project-text">Azure Security Posture Dashboard</div>
+                <div class="project-sub">→ Defender for Cloud + Azure Policy baselines + Log Analytics workbook — surface top misconfigurations in a single view, connect alerts for real-time notification</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">04</div>
               <div>
-                <div class="project-text">Enable Azure Monitor + analyze security logs</div>
-                <div class="project-sub">→ set up logging, generate events, detect suspicious activity in the log</div>
+                <div class="project-text">Zero Trust Identity Pipeline</div>
+                <div class="project-sub">→ configure PIM for all privileged roles (just-in-time access, no standing privileges) + conditional access + convert an app to managed identity authentication — document before vs after using Entra ID sign-in logs</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">05</div>
               <div>
+                <div class="project-text">Automated Incident Detection + Response</div>
+                <div class="project-sub">→ build Microsoft Sentinel workspace + write custom KQL analytics rules detecting privilege escalation, impossible travel, unusual data export — Logic Apps playbook triggers automatically on alert, creates incident, sends structured notification</div>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-num">06</div>
+              <div>
                 <div class="project-text">Document the Azure shared responsibility model</div>
-                <div class="project-sub">→ map what Microsoft owns vs what you own across IaaS, PaaS, SaaS</div>
+                <div class="project-sub">→ map Microsoft vs your responsibility across IaaS, PaaS, SaaS — threat model a fictional enterprise Azure environment</div>
               </div>
             </div>
           </div>
@@ -441,7 +467,7 @@
         <div class="phase-header">
           <div class="phase-number">PHASE 05</div>
           <div class="phase-title-block">
-            <div class="phase-title">CLOUD SECURITY ENGINEERING</div>
+            <div class="phase-title">CLOUD SECURITY ENGINEERING + AI</div>
             <div class="phase-identity">// Identity: Builder of Secure Systems</div>
           </div>
           <div class="phase-timeline-badge">MONTHS 18–24</div>
@@ -467,7 +493,7 @@
               <div class="project-num">01</div>
               <div>
                 <div class="project-text">Build a secure Azure deployment with Terraform</div>
-                <div class="project-sub">→ infrastructure as code, security controls baked in from the start</div>
+                <div class="project-sub">→ infrastructure as code, security controls baked in from the start — deploy from scratch with a single command</div>
               </div>
             </div>
             <div class="project-item">
@@ -481,24 +507,69 @@
               <div class="project-num">03</div>
               <div>
                 <div class="project-text">Build a CI/CD pipeline with security gates</div>
-                <div class="project-sub">→ SAST scanning, dependency checks, secrets detection, GitLab policy enforcement</div>
+                <div class="project-sub">→ SAST scanning, dependency checks, secrets detection, GitLab policy enforcement, manual approval before apply</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">04</div>
               <div>
                 <div class="project-text">Implement CyberArk PAM in a lab environment</div>
-                <div class="project-sub">→ privileged account management, session recording, vault configuration</div>
+                <div class="project-sub">→ privileged account management, session recording, vault configuration, audit trails</div>
               </div>
             </div>
             <div class="project-item">
               <div class="project-num">05</div>
               <div>
                 <div class="project-text">Write a cloud security architecture document</div>
-                <div class="project-sub">→ threat model + controls map for a multi-cloud enterprise environment</div>
+                <div class="project-sub">→ threat model + controls map for a multi-cloud enterprise — assets, threats, vulnerabilities, prioritized controls</div>
               </div>
             </div>
           </div>
+          <div class="phase-divider"></div>
+
+          <!-- AI SECURITY LAYER -->
+          <div class="section-label">// AI Security Layer — The $300K Differentiator</div>
+          <div class="ai-security-banner">
+            <div class="ai-banner-icon">🤖</div>
+            <div>
+              <div class="ai-banner-title">AZURE AI SECURITY</div>
+              <div class="ai-banner-note">Companies are deploying AI on Azure at scale with almost no security controls. Engineers who can secure AI infrastructure are rare — and rare skills command rare compensation.</div>
+            </div>
+          </div>
+          <div class="focus-grid" style="margin-top:14px">
+            <div class="focus-item"><span class="focus-dot"></span>Prompt injection attacks</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure OpenAI security config</div>
+            <div class="focus-item"><span class="focus-dot"></span>OWASP LLM Top 10</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure ML endpoint security</div>
+            <div class="focus-item"><span class="focus-dot"></span>Training data governance</div>
+            <div class="focus-item"><span class="focus-dot"></span>Azure Purview integration</div>
+            <div class="focus-item"><span class="focus-dot"></span>Model extraction detection</div>
+            <div class="focus-item"><span class="focus-dot"></span>Content filter configuration</div>
+          </div>
+          <div class="projects-list" style="margin-top:14px">
+            <div class="project-item ai-project">
+              <div class="project-num">AI-01</div>
+              <div>
+                <div class="project-text">Secure an Azure OpenAI deployment</div>
+                <div class="project-sub">→ configure content filters, private endpoints, Entra ID auth, monitor API access patterns via Log Analytics for extraction attempts</div>
+              </div>
+            </div>
+            <div class="project-item ai-project">
+              <div class="project-num">AI-02</div>
+              <div>
+                <div class="project-text">Map OWASP LLM Top 10 to Azure controls</div>
+                <div class="project-sub">→ document each risk category, identify the Azure service that addresses it, write the controls playbook</div>
+              </div>
+            </div>
+            <div class="project-item ai-project">
+              <div class="project-num">AI-03</div>
+              <div>
+                <div class="project-text">Build an AI security posture report</div>
+                <div class="project-sub">→ integrate Azure Purview for training data classification, document data governance controls, demonstrate before vs after posture improvement</div>
+              </div>
+            </div>
+          </div>
+
           <div class="phase-divider"></div>
           <div class="section-label">// Target Certifications — The Full Stack</div>
           <div class="cert-box" style="margin-bottom:10px">
