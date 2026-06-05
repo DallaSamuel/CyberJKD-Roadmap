@@ -6,8 +6,10 @@ function toggle(el) {
 
 window.addEventListener('load', () => {
   const first = document.querySelector('.phase-inner');
-  if (first) setTimeout(() => {
-    first.classList.add('expanded');
-    first.querySelector('.phase-body').classList.add('open');
-  }, 1200);
+  if (first) {
+    setTimeout(() => {
+      first.classList.add('expanded');
+      first.querySelector('.phase-body').classList.add('open');
+    }, 800);
+  }
 });
