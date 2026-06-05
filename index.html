@@ -5,650 +5,858 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberJKD Roadmap</title>
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" type="image/png" href="CyberJKD.png">
-<style></style>
+<link rel="icon" type="image/png" href="./img/CyberJKD.png">
 </head>
 <body>
 <div class="container">
 
+  <!-- HEADER -->
   <div class="header">
     <div class="logo-container">
-      <img src="CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
+      <img src="./img/CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
     </div>
-    <div class="logo-line">// CyberJKD :: MASTER ROADMAP :: v2.4</div>
+    <div class="logo-line">// CyberJKD · Master Roadmap · v2.5</div>
     <div class="title">Cyber<span>JKD</span></div>
     <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
     <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
   </div>
 
+  <!-- PROGRESS STRIP -->
   <div class="progress-strip">
     <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.0s"></div>
     <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.1s"></div>
-    <div class="strip-segment active" style="--seg-color:#00ccff;--seg-delay:1.2s"></div>
+    <div class="strip-segment active" style="--seg-color:#00ddff;--seg-delay:1.2s"></div>
     <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.3s"></div>
     <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.4s"></div>
-    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.5s"></div>
+    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.5s"></div>
     <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.6s"></div>
-    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.7s"></div>
-    <div class="strip-segment active" style="--seg-color:#ffcc00;--seg-delay:1.8s"></div>
+    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.7s"></div>
+    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.8s"></div>
     <div class="strip-segment active" style="--seg-color:#ffcc00;--seg-delay:1.9s"></div>
   </div>
 
   <div class="timeline">
 
-    <!-- PHASE 1 -->
+    <!-- ══════════════════════════════════════
+         PHASE 01 — SYSTEMS FOUNDATION
+    ══════════════════════════════════════ -->
     <div class="phase">
       <div class="phase-inner" style="--phase-color:#00aaff" onclick="toggle(this)">
         <div class="phase-header">
           <div class="phase-number">PHASE 01</div>
           <div class="phase-title-block">
-            <div class="phase-title">SYSTEMS FOUNDATION</div>
+            <div class="phase-title">Systems Foundation</div>
             <div class="phase-identity">// Identity: Infrastructure Thinker</div>
           </div>
-          <div class="phase-status-badge done-phase">✓ COMPLETE</div>
-          <div class="phase-timeline-badge">MONTHS 0–6</div>
-          <div class="expand-icon">▾</div>
+          <div class="phase-right">
+            <div class="phase-progress wip">5 / 7 DONE</div>
+            <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
+            <div class="phase-timeline-badge">MONTHS 0–6</div>
+            <div class="expand-icon">▾</div>
+          </div>
         </div>
         <div class="phase-body">
-          <div class="phase-divider"></div>
-          <div class="section-label">// Core Focus Areas</div>
-          <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>Operating Systems (deep)</div>
-            <div class="focus-item"><span class="focus-dot"></span>Networking fundamentals</div>
-            <div class="focus-item"><span class="focus-dot"></span>Linux comfort &amp; CLI</div>
-            <div class="focus-item"><span class="focus-dot"></span>Python scripting basics</div>
-            <div class="focus-item"><span class="focus-dot"></span>Bash automation</div>
-            <div class="focus-item"><span class="focus-dot"></span>File systems &amp; permissions</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Build These Projects</div>
-          <div class="projects-list">
+          <div class="phase-body-inner">
 
-            <!-- PROJECT 01 -->
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-01-linux-hardening" target="_blank" class="project-item done project-link">
-              <div class="project-num">01</div>
-              <div class="project-content">
-                <div class="project-text">Harden a Linux VM + document a full checklist</div>
-                <div class="project-sub">→ disable services, configure firewall, lock SSH, write the full report</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — MANUAL (WSL2)</span>
-                  <span class="done-badge">✓ COMPLETED — AUTOMATION SCRIPT</span>
-                  <span class="done-badge">✓ COMPLETED — VM REDO (Ubuntu-Hardening)</span>
-                </div>
-              </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-
-            <!-- PROJECT 02 -->
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-02-network-segmentation" target="_blank" class="project-item done project-link">
-              <div class="project-num">02</div>
-              <div class="project-content">
-                <div class="project-text">Design a segmented lab network</div>
-                <div class="project-sub">→ VLANs, firewall rules, draw topology, document all configurations</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — APR 25 2026</span>
-                </div>
-              </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-
-            <!-- PROJECT 03 -->
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-03-wireshark-packet-analysis" target="_blank" class="project-item done project-link">
-              <div class="project-num">03</div>
-              <div class="project-content">
-                <div class="project-text">Wireshark packet analysis report</div>
-                <div class="project-sub">→ capture live traffic, identify protocols, flag anomalies, write findings</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — Wireshark Packet Analysis (Apr 28, 2026)</span>
-                </div>
-              </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-
-            <!-- PROJECT 04 -->
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-04-python-log-parser" target="_blank" class="project-item done project-link">
-              <div class="project-num">04</div>
-              <div class="project-content">
-                <div class="project-text">Write a Python log parser script</div>
-                <div class="project-sub">→ parse auth logs, detect failed logins, output a clean summary</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — Python Log Parser (May 2, 2026)</span>
-                </div>
-              </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-
-            <!-- PROJECT 05 -->
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-05-brute-force-simulation" target="_blank" class="project-item done project-link">
-              <div class="project-num">05</div>
-              <div class="project-content">
-                <div class="project-text">Simulate brute force + analyze the logs</div>
-                <div class="project-sub">→ controlled lab environment only — study what it looks like in the logs</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — Brute Force Simulation + Log Analysis (May 3, 2026)</span>
-                </div>
-              </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Target Certifications</div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🎯</div>
-            <div>
-              <div class="cert-name">CompTIA Security+</div>
-              <div class="cert-note">Target: Aug/Sep 2026. First cert. Skill first — cert follows the work.</div>
+            <div class="phase-divider"></div>
+            <div class="section-label">// Core Focus Areas</div>
+            <div class="focus-grid">
+              <div class="focus-item"><span class="focus-dot"></span>Operating Systems (deep)</div>
+              <div class="focus-item"><span class="focus-dot"></span>Networking fundamentals</div>
+              <div class="focus-item"><span class="focus-dot"></span>Linux comfort &amp; CLI</div>
+              <div class="focus-item"><span class="focus-dot"></span>Python scripting basics</div>
+              <div class="focus-item"><span class="focus-dot"></span>Bash automation</div>
+              <div class="focus-item"><span class="focus-dot"></span>File systems &amp; permissions</div>
             </div>
-          </div>
-          <div class="cert-box">
-            <div class="cert-icon">🎯</div>
-            <div>
-              <div class="cert-name">CCNA</div>
-              <div class="cert-note">Target: Nov/Dec 2026. NetworkChuck + Jeremy Cioara bootcamp. Networking deep — cert follows the study.</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Foundation Pillars</div>
+            <div class="pillars-card">
+              <div class="pillars-title">MASTER THE CORE SERVICE CATEGORIES</div>
+              <div class="pillars-grid">
+                <div class="pillar-item">
+                  <div class="pillar-name">COMPUTE</div>
+                  <div class="pillar-sub">VMs · processing · workload execution</div>
+                </div>
+                <div class="pillar-item">
+                  <div class="pillar-name">NETWORK</div>
+                  <div class="pillar-sub">VLANs · firewalls · traffic flow</div>
+                </div>
+                <div class="pillar-item">
+                  <div class="pillar-name">STORAGE</div>
+                  <div class="pillar-sub">File systems · permissions · data</div>
+                </div>
+              </div>
             </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives</div>
+            <div class="ops-grid">
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-01-linux-hardening" target="_blank" class="op-row done">
+                <div class="op-num done-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Harden a Linux VM</div>
+                  <div class="op-sub">disable services · lock SSH · firewall config · full report</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ Manual (WSL2)</span>
+                    <span class="done-badge">✓ Automation Script</span>
+                    <span class="done-badge">✓ VM Redo</span>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-02-network-segmentation" target="_blank" class="op-row done">
+                <div class="op-num done-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Segmented lab network</div>
+                  <div class="op-sub">VLANs · firewall rules · topology diagram</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ Apr 25 2026</span>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-03-wireshark-packet-analysis" target="_blank" class="op-row done">
+                <div class="op-num done-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">Wireshark packet analysis</div>
+                  <div class="op-sub">live capture · protocol identification · anomaly flagging</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ Apr 28 2026</span>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-04-python-log-parser" target="_blank" class="op-row done">
+                <div class="op-num done-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">Python log parser script</div>
+                  <div class="op-sub">parse auth logs · detect failed logins · clean summary output</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ May 2 2026</span>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-05-brute-force-simulation" target="_blank" class="op-row done">
+                <div class="op-num done-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Brute force simulation + log analysis</div>
+                  <div class="op-sub">controlled lab only · study what attack looks like in logs</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ May 3 2026</span>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-01/project-06-router-firmware-research" target="_blank" class="op-row wip">
+                <div class="op-num wip-num">06</div>
+                <div class="op-content">
+                  <div class="op-text">B819 Router Firmware Research</div>
+                  <div class="op-sub">reverse engineered 4G/5G router · found JS simStatus bug · wrote Patch v1.0 · UART root shell pending</div>
+                  <div class="done-badges">
+                    <span class="done-badge" style="border-color:rgba(255,204,0,0.4);color:#cc9900;background:rgba(255,204,0,0.08);">⏳ Phase 1 done · UART pending</span>
+                    <span class="done-badge" style="border-color:rgba(255,204,0,0.4);color:#cc9900;background:rgba(255,204,0,0.08);">✓ Patch v1.0 written</span>
+                  </div>
+                </div>
+                <div class="ext-icon" style="color:#cc9900;">↗</div>
+              </a>
+
+              <div class="op-row" style="grid-column: 1 / -1;">
+                <div class="op-num">07</div>
+                <div class="op-content">
+                  <div class="op-text">Sherlock OSINT — Username Intelligence Recon</div>
+                  <div class="op-sub">run Sherlock across 400+ platforms · document output · analyse security implications · write full recon report</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Target Certifications</div>
+            <div class="cert-timeline">
+              <div class="cert-row">
+                <div class="cert-date">Aug 2026<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">CompTIA Security+ (SY0-701)</div>
+                  <div class="cert-note">Via Professor Messer — free. Skill first, cert follows the work.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Nov 2026<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">CCNA</div>
+                  <div class="cert-note">NetworkChuck + Jeremy Cioara bootcamp. Networking deep.</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE 2 -->
+    <div class="phase-connector"></div>
+
+    <!-- ══════════════════════════════════════
+         PHASE 02 — DEFENSIVE MATURITY
+    ══════════════════════════════════════ -->
     <div class="phase">
       <div class="phase-inner" style="--phase-color:#00ddff" onclick="toggle(this)">
         <div class="phase-header">
           <div class="phase-number">PHASE 02</div>
           <div class="phase-title-block">
-            <div class="phase-title">DEFENSIVE MATURITY</div>
+            <div class="phase-title">Defensive Maturity</div>
             <div class="phase-identity">// Identity: Detection-Aware Engineer</div>
           </div>
-          <div class="phase-timeline-badge">MONTHS 6–12</div>
-          <div class="expand-icon">▾</div>
+          <div class="phase-right">
+            <div class="phase-progress wip">0 / 5 DONE</div>
+            <div class="phase-status-badge in-progress">— PENDING</div>
+            <div class="phase-timeline-badge">MONTHS 6–12</div>
+            <div class="expand-icon">▾</div>
+          </div>
         </div>
         <div class="phase-body">
-          <div class="phase-divider"></div>
-          <div class="section-label">// Core Focus Areas</div>
-          <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>Windows event logs</div>
-            <div class="focus-item"><span class="focus-dot"></span>Linux system logs</div>
-            <div class="focus-item"><span class="focus-dot"></span>SIEM (Splunk / Security Onion)</div>
-            <div class="focus-item"><span class="focus-dot"></span>ServiceNow ITSM</div>
-            <div class="focus-item"><span class="focus-dot"></span>Incident response workflow</div>
-            <div class="focus-item"><span class="focus-dot"></span>MITRE ATT&amp;CK framework</div>
-            <div class="focus-item"><span class="focus-dot"></span>Threat modeling</div>
-            <div class="focus-item"><span class="focus-dot"></span>Vulnerability management</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Tools to Master</div>
-          <div class="tools-grid">
-            <div class="tool-item"><span class="tool-dot"></span>Splunk</div>
-            <div class="tool-item"><span class="tool-dot"></span>Tenable Nessus</div>
-            <div class="tool-item"><span class="tool-dot"></span>ServiceNow</div>
-            <div class="tool-item"><span class="tool-dot"></span>Wireshark</div>
-            <div class="tool-item"><span class="tool-dot"></span>Security Onion</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Build These Projects</div>
-          <div class="projects-list">
-            <div class="project-item">
-              <div class="project-num">01</div>
-              <div>
-                <div class="project-text">Forward logs to a SIEM + build a dashboard</div>
-                <div class="project-sub">→ ingest from Linux/Windows, visualize events, create alert rules</div>
+          <div class="phase-body-inner">
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Core Focus Areas</div>
+            <div class="focus-grid">
+              <div class="focus-item"><span class="focus-dot"></span>Windows event logs</div>
+              <div class="focus-item"><span class="focus-dot"></span>Linux system logs</div>
+              <div class="focus-item"><span class="focus-dot"></span>SIEM (Splunk / Security Onion)</div>
+              <div class="focus-item"><span class="focus-dot"></span>ServiceNow ITSM</div>
+              <div class="focus-item"><span class="focus-dot"></span>Incident response workflow</div>
+              <div class="focus-item"><span class="focus-dot"></span>MITRE ATT&amp;CK framework</div>
+              <div class="focus-item"><span class="focus-dot"></span>Threat modeling</div>
+              <div class="focus-item"><span class="focus-dot"></span>Vulnerability management</div>
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Tools to Master</div>
+            <div class="tools-rail">
+              <div class="tool-pill">Splunk</div>
+              <div class="tool-pill">Tenable Nessus</div>
+              <div class="tool-pill">ServiceNow</div>
+              <div class="tool-pill">Wireshark</div>
+              <div class="tool-pill">Security Onion</div>
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives</div>
+            <div class="ops-grid">
+              <div class="op-row">
+                <div class="op-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Forward logs to SIEM + build dashboard</div>
+                  <div class="op-sub">ingest from Linux/Windows · visualize events · create alert rules</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Create a custom detection rule</div>
+                  <div class="op-sub">write Splunk/Sigma rule catching a real-world attack pattern</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">Write a full incident response report</div>
+                  <div class="op-sub">timeline · IOCs · affected systems · containment · lessons learned</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">Simulate a phishing scenario in lab</div>
+                  <div class="op-sub">craft email · analyse headers · map to MITRE ATT&amp;CK</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row" style="grid-column: 1 / -1;">
+                <div class="op-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Vulnerability Management lab</div>
+                  <div class="op-sub">run Nessus scan on lab VMs · triage findings · write remediation report · log ticket in ServiceNow</div>
+                </div>
+                <div class="op-todo">— TODO</div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-num">02</div>
-              <div>
-                <div class="project-text">Create a custom detection rule</div>
-                <div class="project-sub">→ write a Splunk/Sigma rule that catches a real-world attack pattern</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Target Certifications</div>
+            <div class="cert-timeline">
+              <div class="cert-row">
+                <div class="cert-date">After labs<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">Splunk Core Certified User</div>
+                  <div class="cert-note">Cert follows the SIEM hands-on. Build first.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Phase 02<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AZ-900 — Azure Fundamentals</div>
+                  <div class="cert-note">Entry point into the Azure pathway. Study alongside Phase 02 labs.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Always<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name" style="color:var(--text-dim);font-style:italic;">Principle: Think Operationally</div>
+                  <div class="cert-note">Not a cert — a mindset. Every technique studied, ask how it would be detected.</div>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-num">03</div>
-              <div>
-                <div class="project-text">Write a full incident response report</div>
-                <div class="project-sub">→ timeline, IOCs, affected systems, containment steps, lessons learned</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">04</div>
-              <div>
-                <div class="project-text">Simulate a phishing scenario in lab</div>
-                <div class="project-sub">→ craft fake email, analyze headers, map the technique to MITRE ATT&amp;CK</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">05</div>
-              <div>
-                <div class="project-text">Vulnerability Management lab</div>
-                <div class="project-sub">→ run Nessus scan on lab VMs, triage findings, write remediation report, log ticket in ServiceNow</div>
-              </div>
-            </div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Target Certifications</div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🎯</div>
-            <div>
-              <div class="cert-name">SPLUNK CORE CERTIFIED USER</div>
-              <div class="cert-note">After SIEM projects are done. Cert follows the hands-on.</div>
-            </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">☁️</div>
-            <div>
-              <div class="cert-name">AZ-900 — AZURE FUNDAMENTALS</div>
-              <div class="cert-note">Entry point into the Azure pathway. Complete before Phase 03 begins.</div>
-            </div>
-          </div>
-          <div class="cert-box">
-            <div class="cert-icon">🧠</div>
-            <div>
-              <div class="cert-name">THINK OPERATIONALLY</div>
-              <div class="cert-note">Every action you study — ask how it would be detected.</div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE 3 -->
+    <div class="phase-connector"></div>
+
+    <!-- ══════════════════════════════════════
+         PHASE 03 — CLOUD ENTRY: AZURE DEEP
+    ══════════════════════════════════════ -->
     <div class="phase">
       <div class="phase-inner" style="--phase-color:#00ffcc" onclick="toggle(this)">
         <div class="phase-header">
           <div class="phase-number">PHASE 03</div>
           <div class="phase-title-block">
-            <div class="phase-title">CLOUD ENTRY — AZURE DEEP</div>
+            <div class="phase-title">Cloud Entry — Azure Deep</div>
             <div class="phase-identity">// Identity: Cloud-Aware Security Engineer</div>
           </div>
-          <div class="phase-timeline-badge">MONTHS 9–15</div>
-          <div class="expand-icon">▾</div>
+          <div class="phase-right">
+            <div class="phase-progress wip">2 / 13 DONE</div>
+            <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
+            <div class="phase-timeline-badge">MONTHS 9–15</div>
+            <div class="expand-icon">▾</div>
+          </div>
         </div>
         <div class="phase-body">
-          <div class="phase-divider"></div>
-          <div class="section-label">// Prerequisite Check</div>
-          <div class="cert-box" style="margin-bottom:20px">
-            <div class="cert-icon">⚠️</div>
-            <div>
-              <div class="cert-name">ONLY AFTER AZ-900 IS IN HAND</div>
-              <div class="cert-note">Do not start Phase 03 until AZ-900 is certified and Azure fundamentals are solid.</div>
+          <div class="phase-body-inner">
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Azure Core Focus Areas</div>
+            <div class="focus-grid">
+              <div class="focus-item"><span class="focus-dot"></span>Azure IAM + RBAC (deep)</div>
+              <div class="focus-item"><span class="focus-dot"></span>Virtual Networks + NSGs</div>
+              <div class="focus-item"><span class="focus-dot"></span>Microsoft Entra ID</div>
+              <div class="focus-item"><span class="focus-dot"></span>Privileged Identity Management</div>
+              <div class="focus-item"><span class="focus-dot"></span>Conditional Access policies</div>
+              <div class="focus-item"><span class="focus-dot"></span>Managed Identities</div>
+              <div class="focus-item"><span class="focus-dot"></span>Defender for Cloud</div>
+              <div class="focus-item"><span class="focus-dot"></span>Microsoft Sentinel + KQL</div>
+              <div class="focus-item"><span class="focus-dot"></span>Log Analytics workspace</div>
+              <div class="focus-item"><span class="focus-dot"></span>Azure Key Vault</div>
+              <div class="focus-item"><span class="focus-dot"></span>Azure Policy + Compliance</div>
+              <div class="focus-item"><span class="focus-dot"></span>Azure Purview</div>
+              <div class="focus-item"><span class="focus-dot"></span>Private Endpoints</div>
+              <div class="focus-item"><span class="focus-dot"></span>Zero Trust architecture</div>
+              <div class="focus-item"><span class="focus-dot"></span>Azure Cost Management + FinOps</div>
+              <div class="focus-item"><span class="focus-dot"></span>Shared responsibility model</div>
             </div>
-          </div>
-          <div class="section-label">// Azure Primary — Core Focus Areas</div>
-          <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>Azure IAM + RBAC (deep)</div>
-            <div class="focus-item"><span class="focus-dot"></span>Virtual Networks + NSGs</div>
-            <div class="focus-item"><span class="focus-dot"></span>Microsoft Entra ID</div>
-            <div class="focus-item"><span class="focus-dot"></span>Privileged Identity Management</div>
-            <div class="focus-item"><span class="focus-dot"></span>Conditional Access policies</div>
-            <div class="focus-item"><span class="focus-dot"></span>Managed Identities</div>
-            <div class="focus-item"><span class="focus-dot"></span>Defender for Cloud</div>
-            <div class="focus-item"><span class="focus-dot"></span>Microsoft Sentinel + KQL</div>
-            <div class="focus-item"><span class="focus-dot"></span>Log Analytics workspace</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Key Vault</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Policy + Compliance</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Purview</div>
-            <div class="focus-item"><span class="focus-dot"></span>Private Endpoints</div>
-            <div class="focus-item"><span class="focus-dot"></span>Zero Trust architecture</div>
-            <div class="focus-item"><span class="focus-dot"></span>Threat modeling mindset</div>
-            <div class="focus-item"><span class="focus-dot"></span>Shared responsibility model</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Cost Management + FinOps</div>
-            <div class="focus-item"><span class="focus-dot"></span>Resource tagging + governance</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Tools to Master</div>
-          <div class="tools-grid">
-            <div class="tool-item"><span class="tool-dot"></span>Microsoft Sentinel</div>
-            <div class="tool-item"><span class="tool-dot"></span>Defender for Cloud</div>
-            <div class="tool-item"><span class="tool-dot"></span>Log Analytics + KQL</div>
-            <div class="tool-item"><span class="tool-dot"></span>Microsoft Entra ID</div>
-            <div class="tool-item"><span class="tool-dot"></span>Azure Key Vault</div>
-            <div class="tool-item"><span class="tool-dot"></span>Azure Purview</div>
-            <div class="tool-item"><span class="tool-dot"></span>Logic Apps</div>
-            <div class="tool-item"><span class="tool-dot"></span>Azure Cost Management</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Build These Projects</div>
-          <div class="projects-list">
-            <div class="project-item">
-              <div class="project-num">01</div>
-              <div>
-                <div class="project-text">Deploy Azure VM + harden it properly</div>
-                <div class="project-sub">→ configure NSGs, private endpoints, disable unused ports, lock IAM, document every decision</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Tools to Master</div>
+            <div class="tools-rail">
+              <div class="tool-pill">Microsoft Sentinel</div>
+              <div class="tool-pill">Defender for Cloud</div>
+              <div class="tool-pill">Log Analytics + KQL</div>
+              <div class="tool-pill">Microsoft Entra ID</div>
+              <div class="tool-pill">Azure Key Vault</div>
+              <div class="tool-pill">Azure Purview</div>
+              <div class="tool-pill">Logic Apps</div>
+              <div class="tool-pill">Azure Cost Management</div>
+              <div class="tool-pill">Azure Static Web Apps</div>
+              <div class="tool-pill">GitHub Actions</div>
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives</div>
+            <div class="ops-grid">
+
+              <div class="op-row">
+                <div class="op-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Deploy Azure VM + harden it</div>
+                  <div class="op-sub">NSGs · private endpoints · disable unused ports · lock IAM · document every decision</div>
+                </div>
+                <div class="op-todo">— TODO</div>
               </div>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="op-row done">
+                <div class="op-num done-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Active Directory + Microsoft Entra ID</div>
+                  <div class="op-sub">users · groups · RBAC · conditional access · MFA from scratch</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ May 20 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="done-badge" onclick="event.stopPropagation()">⌥ GitHub</a>
+                    <a href="https://youtu.be/R5Bs3x3Pgg0" target="_blank" class="done-badge" onclick="event.stopPropagation()">▶ YouTube</a>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="op-row done">
+                <div class="op-num done-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">Wireshark network analysis on Azure VM</div>
+                  <div class="op-sub">TCP handshake · DNS queries · cleartext HTTP creds · stream reconstruction</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ May 23 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="done-badge" onclick="event.stopPropagation()">⌥ GitHub</a>
+                    <a href="https://youtu.be/65AK8ErYDME" target="_blank" class="done-badge" onclick="event.stopPropagation()">▶ YouTube</a>
+                  </div>
+                </div>
+                <div class="ext-icon">↗</div>
+              </a>
+
+              <div class="op-row">
+                <div class="op-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">Automated Backup System</div>
+                  <div class="op-sub">Blob Storage + versioning + lifecycle policies + daily Logic Apps confirmation</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Website Uptime Monitor</div>
+                  <div class="op-sub">timer-triggered Functions + 3 checks + email/SMS alerts + Workbooks</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">06</div>
+                <div class="op-content">
+                  <div class="op-text">Azure Cost + Governance Dashboard</div>
+                  <div class="op-sub">Cost Management budgets · tagging policy · Azure Policy · cost anomaly runbook</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">07</div>
+                <div class="op-content">
+                  <div class="op-text">Customer Inquiry Manager</div>
+                  <div class="op-sub">App Service + Azure OpenAI categorization + SQL + Logic Apps routing</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">08</div>
+                <div class="op-content">
+                  <div class="op-text">AI Inventory Tracker</div>
+                  <div class="op-sub">App Service + SQL + real-time stock + Azure OpenAI predictive restock</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">09</div>
+                <div class="op-content">
+                  <div class="op-text">Azure Security Posture Dashboard</div>
+                  <div class="op-sub">Defender for Cloud + Azure Policy baselines + Log Analytics workbook</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">10</div>
+                <div class="op-content">
+                  <div class="op-text">Zero Trust Identity Pipeline</div>
+                  <div class="op-sub">PIM just-in-time access + conditional access + managed identity auth · before/after Entra ID logs</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">11</div>
+                <div class="op-content">
+                  <div class="op-text">Automated Incident Detection + Response</div>
+                  <div class="op-sub">Sentinel workspace + KQL rules (priv escalation · impossible travel) + Logic Apps auto-playbook</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">12</div>
+                <div class="op-content">
+                  <div class="op-text">Document the Azure Shared Responsibility Model</div>
+                  <div class="op-sub">map Microsoft vs your responsibility across IaaS · PaaS · SaaS · threat model a fictional enterprise</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+
+              <div class="op-row" style="grid-column: 1 / -1; border-color:rgba(0,255,204,0.35);background:rgba(0,255,204,0.04)">
+                <div class="op-num" style="color:var(--cyan)">13</div>
+                <div class="op-content">
+                  <div class="op-text" style="color:#a0e8d8">Migrate Roadmap to Azure Static Web Apps + CI/CD Pipeline</div>
+                  <div class="op-sub">GitHub Actions auto-deploy on push → Azure Static Web Apps → custom domain → HTTPS automatic. The roadmap becomes a live proof of the exact skills it describes.</div>
+                </div>
+                <div class="op-todo" style="color:var(--cyan)">— PLANNED</div>
+              </div>
+
             </div>
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="project-item done project-link">
-              <div class="project-num">02</div>
-              <div class="project-content">
-                <div class="project-text">Provision Active Directory + configure Microsoft Entra ID</div>
-                <div class="project-sub">→ users, groups, RBAC, conditional access policies, MFA enforcement from scratch</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — 20th MAY 2026</span>
-                  <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="done-badge done-badge-link" onclick="event.stopPropagation()">⌥ GitHub Repo</a>
-                  <a href="https://youtu.be/R5Bs3x3Pgg0" target="_blank" class="done-badge done-badge-link" onclick="event.stopPropagation()">▶ YouTube Walkthrough</a>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Value Pillars — Every Project Maps to One</div>
+            <div class="value-pillars-card">
+              <div class="value-pillars-title">GOLDEN RULE — LEAD WITH THE BUSINESS OUTCOME</div>
+              <div class="value-pillars-note">Services are supporting details — outcomes are what hiring managers remember. Every project maps to at least one pillar below.</div>
+              <div class="value-pillars-grid">
+                <div class="value-pillar">
+                  <div class="vp-name">Cost Optimization</div>
+                  <div class="vp-proj">→ Project 06</div>
+                </div>
+                <div class="value-pillar">
+                  <div class="vp-name">Data Resilience</div>
+                  <div class="vp-proj">→ Project 04</div>
+                </div>
+                <div class="value-pillar">
+                  <div class="vp-name">Monitoring &amp; Reliability</div>
+                  <div class="vp-proj">→ Project 05</div>
+                </div>
+                <div class="value-pillar">
+                  <div class="vp-name">AI &amp; Automation</div>
+                  <div class="vp-proj">→ Projects 07, 08</div>
+                </div>
+                <div class="value-pillar">
+                  <div class="vp-name">Security</div>
+                  <div class="vp-proj">→ Projects 09, 10, 11</div>
+                </div>
+                <div class="value-pillar">
+                  <div class="vp-name">Infrastructure Automation</div>
+                  <div class="vp-proj">→ Project 13</div>
                 </div>
               </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-            <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="project-item done project-link">
-              <div class="project-num">03</div>
-              <div class="project-content">
-                <div class="project-text">Wireshark & Network Analysis on Azure VM</div>
-                <div class="project-sub">→ captured live traffic, DNS queries, TCP three-way handshake, cleartext HTTP credentials, TCP stream reconstruction — Azure VM, full display filter workflow</div>
-                <div class="done-badges">
-                  <span class="done-badge">✓ COMPLETED — 23rd MAY 2026</span>
-                  <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="done-badge done-badge-link" onclick="event.stopPropagation()">⌥ GitHub Repo</a>
-                  <a href="https://youtu.be/65AK8ErYDME" target="_blank" class="done-badge done-badge-link" onclick="event.stopPropagation()">▶ YouTube Walkthrough</a>
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Target Certifications</div>
+            <div class="cert-timeline">
+              <div class="cert-row">
+                <div class="cert-date">Phase 03<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AZ-104 — Azure Administrator</div>
+                  <div class="cert-note">Primary Phase 03 cert. After hands-on projects are complete.</div>
                 </div>
               </div>
-              <div class="project-ext-icon">↗</div>
-            </a>
-            <div class="project-item">
-              <div class="project-num">04</div>
-              <div>
-                <div class="project-text">Azure Security Posture Dashboard</div>
-                <div class="project-sub">→ Defender for Cloud + Azure Policy baselines + Log Analytics workbook — surface top misconfigurations in a single view, connect alerts for real-time notification</div>
+              <div class="cert-row">
+                <div class="cert-date">Stretch<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AZ-305 — Azure Solutions Architect</div>
+                  <div class="cert-note">Architect-level thinking for Cloud Security Engineers.</div>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-num">05</div>
-              <div>
-                <div class="project-text">Zero Trust Identity Pipeline</div>
-                <div class="project-sub">→ configure PIM for all privileged roles (just-in-time access, no standing privileges) + conditional access + convert an app to managed identity authentication — document before vs after using Entra ID sign-in logs</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">06</div>
-              <div>
-                <div class="project-text">Automated Incident Detection + Response</div>
-                <div class="project-sub">→ build Microsoft Sentinel workspace + write custom KQL analytics rules detecting privilege escalation, impossible travel, unusual data export — Logic Apps playbook triggers automatically on alert, creates incident, sends structured notification</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">07</div>
-              <div>
-                <div class="project-text">Document the Azure shared responsibility model</div>
-                <div class="project-sub">→ map Microsoft vs your responsibility across IaaS, PaaS, SaaS — threat model a fictional enterprise Azure environment</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">08</div>
-              <div>
-                <div class="project-text">Azure Cost + Governance Dashboard</div>
-                <div class="project-sub">→ configure Azure Cost Management budgets + spending alerts, tag all resources by environment (dev/prod), enforce tagging policy via Azure Policy, document governance controls and cost anomaly response runbook</div>
-              </div>
-            </div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Target Certifications</div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">☁️</div>
-            <div>
-              <div class="cert-name">AZ-104 — AZURE ADMINISTRATOR</div>
-              <div class="cert-note">Primary Phase 03 cert. After hands-on projects are complete.</div>
-            </div>
-          </div>
-          <div class="cert-box">
-            <div class="cert-icon">☁️</div>
-            <div>
-              <div class="cert-name">AZ-305 — AZURE SOLUTIONS ARCHITECT</div>
-              <div class="cert-note">Phase 03 stretch target. Architect-level thinking for Cloud Security Engineers.</div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE 4 -->
+    <div class="phase-connector"></div>
+
+    <!-- ══════════════════════════════════════
+         PHASE 04 — CONTROLLED OFFENSIVE
+    ══════════════════════════════════════ -->
     <div class="phase">
       <div class="phase-inner" style="--phase-color:#ff3355" onclick="toggle(this)">
         <div class="phase-header">
           <div class="phase-number">PHASE 04</div>
           <div class="phase-title-block">
-            <div class="phase-title">CONTROLLED OFFENSIVE + MULTI-CLOUD</div>
+            <div class="phase-title">Controlled Offensive + Multi-Cloud</div>
             <div class="phase-identity">// Identity: Precision Striker</div>
           </div>
-          <div class="phase-timeline-badge">MONTHS 12–18</div>
-          <div class="expand-icon">▾</div>
+          <div class="phase-right">
+            <div class="phase-progress wip">0 / 5 DONE</div>
+            <div class="phase-status-badge in-progress">— PENDING</div>
+            <div class="phase-timeline-badge">MONTHS 12–18</div>
+            <div class="expand-icon">▾</div>
+          </div>
         </div>
         <div class="phase-body">
-          <div class="phase-divider"></div>
-          <div class="section-label">// Core Focus Areas</div>
-          <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>eJPT certification path</div>
-            <div class="focus-item"><span class="focus-dot"></span>HackTheBox labs</div>
-            <div class="focus-item"><span class="focus-dot"></span>Active Directory attacks</div>
-            <div class="focus-item"><span class="focus-dot"></span>Web exploitation basics</div>
-            <div class="focus-item"><span class="focus-dot"></span>Privilege escalation</div>
-            <div class="focus-item"><span class="focus-dot"></span>AWS fundamentals entry</div>
-            <div class="focus-item"><span class="focus-dot"></span>GCP fundamentals entry</div>
-            <div class="focus-item"><span class="focus-dot"></span>Professional report writing</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Build These Projects</div>
-          <div class="projects-list">
-            <div class="project-item">
-              <div class="project-num">01</div>
-              <div>
-                <div class="project-text">Complete eJPT + document lab methodology</div>
-                <div class="project-sub">→ write up every machine like a real professional pentest report</div>
+          <div class="phase-body-inner">
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Core Focus Areas</div>
+            <div class="focus-grid">
+              <div class="focus-item"><span class="focus-dot"></span>eJPT certification path</div>
+              <div class="focus-item"><span class="focus-dot"></span>HackTheBox labs</div>
+              <div class="focus-item"><span class="focus-dot"></span>Active Directory attacks</div>
+              <div class="focus-item"><span class="focus-dot"></span>Web exploitation basics</div>
+              <div class="focus-item"><span class="focus-dot"></span>Privilege escalation</div>
+              <div class="focus-item"><span class="focus-dot"></span>AWS fundamentals entry</div>
+              <div class="focus-item"><span class="focus-dot"></span>GCP fundamentals entry</div>
+              <div class="focus-item"><span class="focus-dot"></span>Professional report writing</div>
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives</div>
+            <div class="ops-grid">
+              <div class="op-row">
+                <div class="op-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Complete eJPT + document lab methodology</div>
+                  <div class="op-sub">write every machine like a real professional pentest report</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Build an Active Directory home lab</div>
+                  <div class="op-sub">set up AD · attack it · then detect those attacks in event logs</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">Complete 5 HTB machines + write reports</div>
+                  <div class="op-sub">methodology · findings · exploitation · remediation for each</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">AWS fundamentals lab — EC2, IAM, S3, VPC</div>
+                  <div class="op-sub">first AWS hands-on · Azure knowledge transfers · document differences</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row" style="grid-column: 1 / -1;">
+                <div class="op-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Write a privilege escalation cheatsheet</div>
+                  <div class="op-sub">Linux + Windows paths · detection methods · how defenders catch each one</div>
+                </div>
+                <div class="op-todo">— TODO</div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-num">02</div>
-              <div>
-                <div class="project-text">Build an Active Directory home lab</div>
-                <div class="project-sub">→ set up AD, attack it, then detect those attacks in the event logs</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Target Certifications</div>
+            <div class="cert-timeline">
+              <div class="cert-row">
+                <div class="cert-date">Phase 04<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AWS SAA — Solutions Architect Associate</div>
+                  <div class="cert-note">After AWS hands-on. Azure foundation makes this faster.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Phase 04<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">GCPACE — Google Cloud Associate Engineer</div>
+                  <div class="cert-note">GCP entry. Third platform after Azure + AWS.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Always<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">The One Rule</div>
+                  <div class="cert-note">Every offensive technique studied through a defensive lens first. Always ask: how would this be detected?</div>
+                </div>
               </div>
             </div>
-            <div class="project-item">
-              <div class="project-num">03</div>
-              <div>
-                <div class="project-text">Complete 5 HTB machines + write reports</div>
-                <div class="project-sub">→ methodology, findings, exploitation steps, remediation advice for each</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">04</div>
-              <div>
-                <div class="project-text">AWS fundamentals lab — EC2, IAM, S3, VPC</div>
-                <div class="project-sub">→ first AWS hands-on — Azure knowledge transfers fast, document the differences</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">05</div>
-              <div>
-                <div class="project-text">Write a privilege escalation cheatsheet</div>
-                <div class="project-sub">→ Linux + Windows paths, detection methods, how defenders catch each one</div>
-              </div>
-            </div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Target Certifications</div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🎯</div>
-            <div>
-              <div class="cert-name">AWS SAA — SOLUTIONS ARCHITECT ASSOCIATE</div>
-              <div class="cert-note">After AWS hands-on projects. Azure foundation makes this significantly faster.</div>
-            </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🎯</div>
-            <div>
-              <div class="cert-name">GCPACE — GOOGLE CLOUD ASSOCIATE ENGINEER</div>
-              <div class="cert-note">GCP entry cert. Multi-cloud awareness — third platform after Azure + AWS.</div>
-            </div>
-          </div>
-          <div class="cert-box">
-            <div class="cert-icon">⚡</div>
-            <div>
-              <div class="cert-name">THE ONE RULE</div>
-              <div class="cert-note">Every offensive technique studied through a defensive lens first. Always ask: how would this be detected?</div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-    <!-- PHASE 5 -->
+    <div class="phase-connector"></div>
+
+    <!-- ══════════════════════════════════════
+         PHASE 05 — CLOUD SECURITY ENGINEERING
+    ══════════════════════════════════════ -->
     <div class="phase">
       <div class="phase-inner" style="--phase-color:#aa55ff" onclick="toggle(this)">
         <div class="phase-header">
           <div class="phase-number">PHASE 05</div>
           <div class="phase-title-block">
-            <div class="phase-title">CLOUD SECURITY ENGINEERING + AI</div>
+            <div class="phase-title">Cloud Security Engineering + AI</div>
             <div class="phase-identity">// Identity: Builder of Secure Systems</div>
           </div>
-          <div class="phase-timeline-badge">MONTHS 18–24</div>
-          <div class="expand-icon">▾</div>
+          <div class="phase-right">
+            <div class="phase-progress wip">0 / 8 DONE</div>
+            <div class="phase-status-badge in-progress">— PENDING</div>
+            <div class="phase-timeline-badge">MONTHS 18–24</div>
+            <div class="expand-icon">▾</div>
+          </div>
         </div>
         <div class="phase-body">
-          <div class="phase-divider"></div>
-          <div class="section-label">// Core Focus Areas</div>
-          <div class="focus-grid">
-            <div class="focus-item"><span class="focus-dot"></span>Advanced Azure security</div>
-            <div class="focus-item"><span class="focus-dot"></span>Privileged Access Management</div>
-            <div class="focus-item"><span class="focus-dot"></span>Container security</div>
-            <div class="focus-item"><span class="focus-dot"></span>CI/CD pipeline security</div>
-            <div class="focus-item"><span class="focus-dot"></span>Terraform IaC</div>
-            <div class="focus-item"><span class="focus-dot"></span>DevSecOps fundamentals</div>
-            <div class="focus-item"><span class="focus-dot"></span>Secure deployment pipelines</div>
-            <div class="focus-item"><span class="focus-dot"></span>Multi-cloud security architecture</div>
-          </div>
-          <div class="phase-divider"></div>
-          <div class="section-label">// Build These Projects</div>
-          <div class="projects-list">
-            <div class="project-item">
-              <div class="project-num">01</div>
-              <div>
-                <div class="project-text">Build a secure Azure deployment with Terraform</div>
-                <div class="project-sub">→ infrastructure as code, security controls baked in from the start — deploy from scratch with a single command</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">02</div>
-              <div>
-                <div class="project-text">Harden a container environment (Docker / K8s)</div>
-                <div class="project-sub">→ image scanning, runtime policies, network policies, secrets management</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">03</div>
-              <div>
-                <div class="project-text">Build a CI/CD pipeline with security gates</div>
-                <div class="project-sub">→ SAST scanning, dependency checks, secrets detection, GitLab policy enforcement, manual approval before apply</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">04</div>
-              <div>
-                <div class="project-text">Implement CyberArk PAM in a lab environment</div>
-                <div class="project-sub">→ privileged account management, session recording, vault configuration, audit trails</div>
-              </div>
-            </div>
-            <div class="project-item">
-              <div class="project-num">05</div>
-              <div>
-                <div class="project-text">Write a cloud security architecture document</div>
-                <div class="project-sub">→ threat model + controls map for a multi-cloud enterprise — assets, threats, vulnerabilities, prioritized controls</div>
-              </div>
-            </div>
-          </div>
-          <div class="phase-divider"></div>
+          <div class="phase-body-inner">
 
-          <!-- AI SECURITY LAYER -->
-          <div class="section-label">// AI Security Layer — The $300K Differentiator</div>
-          <div class="ai-security-banner">
-            <div class="ai-banner-icon">🤖</div>
-            <div>
-              <div class="ai-banner-title">AZURE AI SECURITY</div>
-              <div class="ai-banner-note">Companies are deploying AI on Azure at scale with almost no security controls. Engineers who can secure AI infrastructure are rare — and rare skills command rare compensation.</div>
+            <div class="phase-divider"></div>
+            <div class="section-label">// Core Focus Areas</div>
+            <div class="focus-grid">
+              <div class="focus-item"><span class="focus-dot"></span>Advanced Azure security</div>
+              <div class="focus-item"><span class="focus-dot"></span>Privileged Access Management</div>
+              <div class="focus-item"><span class="focus-dot"></span>Container security</div>
+              <div class="focus-item"><span class="focus-dot"></span>CI/CD pipeline security</div>
+              <div class="focus-item"><span class="focus-dot"></span>Terraform IaC</div>
+              <div class="focus-item"><span class="focus-dot"></span>DevSecOps fundamentals</div>
+              <div class="focus-item"><span class="focus-dot"></span>Secure deployment pipelines</div>
+              <div class="focus-item"><span class="focus-dot"></span>Multi-cloud security architecture</div>
             </div>
-          </div>
-          <div class="focus-grid" style="margin-top:14px">
-            <div class="focus-item"><span class="focus-dot"></span>Prompt injection attacks</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure OpenAI security config</div>
-            <div class="focus-item"><span class="focus-dot"></span>OWASP LLM Top 10</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure ML endpoint security</div>
-            <div class="focus-item"><span class="focus-dot"></span>Training data governance</div>
-            <div class="focus-item"><span class="focus-dot"></span>Azure Purview integration</div>
-            <div class="focus-item"><span class="focus-dot"></span>Model extraction detection</div>
-            <div class="focus-item"><span class="focus-dot"></span>Content filter configuration</div>
-          </div>
-          <div class="projects-list" style="margin-top:14px">
-            <div class="project-item ai-project">
-              <div class="project-num">AI-01</div>
-              <div>
-                <div class="project-text">Secure an Azure OpenAI deployment</div>
-                <div class="project-sub">→ configure content filters, private endpoints, Entra ID auth, monitor API access patterns via Log Analytics for extraction attempts</div>
-              </div>
-            </div>
-            <div class="project-item ai-project">
-              <div class="project-num">AI-02</div>
-              <div>
-                <div class="project-text">Map OWASP LLM Top 10 to Azure controls</div>
-                <div class="project-sub">→ document each risk category, identify the Azure service that addresses it, write the controls playbook</div>
-              </div>
-            </div>
-            <div class="project-item ai-project">
-              <div class="project-num">AI-03</div>
-              <div>
-                <div class="project-text">Build an AI security posture report</div>
-                <div class="project-sub">→ integrate Azure Purview for training data classification, document data governance controls, demonstrate before vs after posture improvement</div>
-              </div>
-            </div>
-          </div>
 
-          <div class="phase-divider"></div>
-          <div class="section-label">// Target Certifications — The Full Stack</div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">AZ-500 — AZURE SECURITY ENGINEER</div>
-              <div class="cert-note">Primary Phase 05 cert. The money cert for Azure Cloud Security Engineering.</div>
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives</div>
+            <div class="ops-grid">
+              <div class="op-row">
+                <div class="op-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Secure Azure deployment with Terraform</div>
+                  <div class="op-sub">IaC · security controls baked in · deploy from scratch with one command</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Harden a container environment</div>
+                  <div class="op-sub">Docker/K8s · image scanning · runtime policies · secrets management</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">CI/CD pipeline with security gates</div>
+                  <div class="op-sub">SAST · dependency checks · secrets detection · GitLab policy · manual approval</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row">
+                <div class="op-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">Implement CyberArk PAM in lab</div>
+                  <div class="op-sub">privileged account management · session recording · vault config · audit trails</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row" style="grid-column: 1 / -1;">
+                <div class="op-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Write a cloud security architecture document</div>
+                  <div class="op-sub">threat model + controls map for a multi-cloud enterprise · assets · threats · vulnerabilities · prioritized controls</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
             </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🤖</div>
-            <div>
-              <div class="cert-name">AI-102 — AZURE AI ENGINEER ASSOCIATE</div>
-              <div class="cert-note">The differentiator cert. Engineers who can secure AI on Azure are rare — and rare skills command rare compensation.</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// AI Security Layer — The $300K Differentiator (included in 0/8)</div>
+            <div class="ai-banner">
+              <div class="ai-banner-icon">🤖</div>
+              <div>
+                <div class="ai-banner-title">AZURE AI SECURITY</div>
+                <div class="ai-banner-note">Companies deploying AI on Azure at scale with almost no security controls. Engineers who can secure AI infrastructure are rare — rare skills command rare compensation.</div>
+              </div>
             </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">AWS SAP — SOLUTIONS ARCHITECT PROFESSIONAL</div>
-              <div class="cert-note">Advanced AWS. Multi-cloud depth after Azure is mastered.</div>
+            <div class="ops-grid">
+              <div class="op-row ai-op">
+                <div class="op-num ai-num">AI-01</div>
+                <div class="op-content">
+                  <div class="op-text">Secure an Azure OpenAI deployment</div>
+                  <div class="op-sub">content filters · private endpoints · Entra ID auth · monitor API via Log Analytics</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row ai-op">
+                <div class="op-num ai-num">AI-02</div>
+                <div class="op-content">
+                  <div class="op-text">Map OWASP LLM Top 10 to Azure controls</div>
+                  <div class="op-sub">each risk category → Azure service that addresses it → controls playbook</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
+              <div class="op-row ai-op" style="grid-column: 1 / -1;">
+                <div class="op-num ai-num">AI-03</div>
+                <div class="op-content">
+                  <div class="op-text">Build an AI security posture report</div>
+                  <div class="op-sub">Azure Purview for training data classification · data governance controls · before vs after posture improvement</div>
+                </div>
+                <div class="op-todo">— TODO</div>
+              </div>
             </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">GCPPCA — GCP PROFESSIONAL CLOUD ARCHITECT</div>
-              <div class="cert-note">GCP advanced cert. Three-cloud architecture capability.</div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Target Certifications — The Full Stack</div>
+            <div class="cert-timeline">
+              <div class="cert-row">
+                <div class="cert-date">Primary<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AZ-500 — Azure Security Engineer</div>
+                  <div class="cert-note">The money cert for Azure Cloud Security Engineering.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Differentiator<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AI-102 — Azure AI Engineer Associate</div>
+                  <div class="cert-note">Rare skill. Rare compensation. Engineers who secure AI on Azure.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Advanced<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">AWS SAP — Solutions Architect Professional</div>
+                  <div class="cert-note">Multi-cloud depth after Azure is mastered.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Advanced<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">GCPPCA — GCP Professional Cloud Architect</div>
+                  <div class="cert-note">Three-cloud architecture capability.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">DevSecOps<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">GitLab Associate + Terraform Associate</div>
+                  <div class="cert-note">CI/CD security and IaC for Cloud Security Engineers.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">PAM<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">CyberArk Sentry + CyberArk Defender</div>
+                  <div class="cert-note">Privileged Access Management — enterprise standard.</div>
+                </div>
+              </div>
+              <div class="cert-row">
+                <div class="cert-date">Long range<div class="cert-dot"></div></div>
+                <div class="cert-info">
+                  <div class="cert-name">OSCP</div>
+                  <div class="cert-note">After offensive phase is complete. Built on deep real skill — never shortcuts.</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">GITLAB ASSOCIATE + TERRAFORM ASSOCIATE</div>
-              <div class="cert-note">DevSecOps pipeline expertise. CI/CD security and IaC for Cloud Security Engineers.</div>
-            </div>
-          </div>
-          <div class="cert-box" style="margin-bottom:10px">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">CYBERARK SENTRY + CYBERARK DEFENDER</div>
-              <div class="cert-note">Privileged Access Management — enterprise standard. Sentry first, Defender follows.</div>
-            </div>
-          </div>
-          <div class="cert-box">
-            <div class="cert-icon">🏆</div>
-            <div>
-              <div class="cert-name">OSCP — LONG RANGE TARGET</div>
-              <div class="cert-note">After offensive phase is complete. Built on deep real skill — never shortcuts.</div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -656,9 +864,11 @@
 
   </div><!-- end timeline -->
 
-  <!-- Employment Milestone -->
+  <div class="phase-connector"></div>
+
+  <!-- EMPLOYMENT MILESTONE -->
   <div class="milestone-card">
-    <div class="milestone-title">🎯 &nbsp; EMPLOYMENT MILESTONE — MONTHS 12–18</div>
+    <div class="milestone-title">🎯 &nbsp; Employment Milestone — Months 12–18</div>
     <div class="milestone-roles">
       <div class="role-tag">SOC Analyst</div>
       <div class="role-tag">Cloud Security Intern</div>
@@ -672,9 +882,9 @@
     </div>
   </div>
 
-  <!-- Mentor Blueprint -->
+  <!-- MENTOR BLUEPRINT -->
   <div class="mentor-card">
-    <div class="mentor-title">⚡ &nbsp; THE BLUEPRINT — CLOUD SECURITY ENGINEER · SIX FIGURES+</div>
+    <div class="mentor-title">⚡ &nbsp; The Blueprint — Cloud Security Engineer · Six Figures+</div>
     <div class="mentor-certs">
       <span class="mentor-cert">S+</span>
       <span class="mentor-cert">AZ-900</span>
@@ -696,17 +906,17 @@
     </div>
   </div>
 
-  <!-- Core Rule -->
+  <!-- CORE RULE -->
   <div class="core-rule">
-    <div class="rule-title">⚠ &nbsp; THE ONE RULE THAT MAKES OR BREAKS THIS</div>
+    <div class="rule-title">⚠ &nbsp; The One Rule That Makes or Breaks This</div>
     <div class="rule-text">
-      Do not jump phases because something <strong>looks cool today</strong>.<br>
+      Do not jump phases because something <strong>looks cool today.</strong><br>
       No <strong>"AWS looks interesting right now."</strong> &nbsp; No <strong>"I want malware."</strong> &nbsp; No <strong>"maybe bug bounty."</strong><br><br>
       <strong>Azure first. Deep. Then expand. That is the whole game.</strong>
     </div>
   </div>
 
 </div>
-</body>
 <script src="script.js"></script>
+</body>
 </html>
