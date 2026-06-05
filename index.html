@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberJKD Roadmap</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2.6">
 <link rel="icon" type="image/png" href="./img/CyberJKD.png">
 </head>
 <body>
@@ -41,8 +41,8 @@
          PHASE 01 — SYSTEMS FOUNDATION
     ══════════════════════════════════════ -->
     <div class="phase">
-      <div class="phase-inner" style="--phase-color:#00aaff" onclick="toggle(this)">
-        <div class="phase-header">
+      <div class="phase-inner" style="--phase-color:#00aaff">
+        <div class="phase-header" onclick="toggle(this.closest('.phase-inner'))">
           <div class="phase-number">PHASE 01</div>
           <div class="phase-title-block">
             <div class="phase-title">Systems Foundation</div>
@@ -209,8 +209,8 @@
          PHASE 02 — DEFENSIVE MATURITY
     ══════════════════════════════════════ -->
     <div class="phase">
-      <div class="phase-inner" style="--phase-color:#00ddff" onclick="toggle(this)">
-        <div class="phase-header">
+      <div class="phase-inner" style="--phase-color:#00ddff">
+        <div class="phase-header" onclick="toggle(this.closest('.phase-inner'))">
           <div class="phase-number">PHASE 02</div>
           <div class="phase-title-block">
             <div class="phase-title">Defensive Maturity</div>
@@ -331,8 +331,8 @@
          PHASE 03 — CLOUD ENTRY: AZURE DEEP
     ══════════════════════════════════════ -->
     <div class="phase">
-      <div class="phase-inner" style="--phase-color:#00ffcc" onclick="toggle(this)">
-        <div class="phase-header">
+      <div class="phase-inner" style="--phase-color:#00ffcc">
+        <div class="phase-header" onclick="toggle(this.closest('.phase-inner'))">
           <div class="phase-number">PHASE 03</div>
           <div class="phase-title-block">
             <div class="phase-title">Cloud Entry — Azure Deep</div>
@@ -397,33 +397,31 @@
                 <div class="op-todo">— TODO</div>
               </div>
 
-              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="op-row done">
+              <div class="op-row done">
                 <div class="op-num done-num">02</div>
                 <div class="op-content">
                   <div class="op-text">Active Directory + Microsoft Entra ID</div>
                   <div class="op-sub">users · groups · RBAC · conditional access · MFA from scratch</div>
                   <div class="done-badges">
                     <span class="done-badge">✓ May 20 2026</span>
-                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-active-directory" target="_blank" class="done-badge" onclick="event.stopPropagation()">⌥ GitHub</a>
-                    <a href="https://youtu.be/R5Bs3x3Pgg0" target="_blank" class="done-badge" onclick="event.stopPropagation()">▶ YouTube</a>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-02-active-directory" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/R5Bs3x3Pgg0" target="_blank" class="done-badge">▶ YouTube</a>
                   </div>
                 </div>
-                <div class="ext-icon">↗</div>
-              </a>
+              </div>
 
-              <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="op-row done">
+              <div class="op-row done">
                 <div class="op-num done-num">03</div>
                 <div class="op-content">
                   <div class="op-text">Wireshark network analysis on Azure VM</div>
                   <div class="op-sub">TCP handshake · DNS queries · cleartext HTTP creds · stream reconstruction</div>
                   <div class="done-badges">
                     <span class="done-badge">✓ May 23 2026</span>
-                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="done-badge" onclick="event.stopPropagation()">⌥ GitHub</a>
-                    <a href="https://youtu.be/65AK8ErYDME" target="_blank" class="done-badge" onclick="event.stopPropagation()">▶ YouTube</a>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-03/project-03-wireshark-network-analysis" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/65AK8ErYDME" target="_blank" class="done-badge">▶ YouTube</a>
                   </div>
                 </div>
-                <div class="ext-icon">↗</div>
-              </a>
+              </div>
 
               <div class="op-row">
                 <div class="op-num">04</div>
@@ -580,8 +578,8 @@
          PHASE 04 — CONTROLLED OFFENSIVE
     ══════════════════════════════════════ -->
     <div class="phase">
-      <div class="phase-inner" style="--phase-color:#ff3355" onclick="toggle(this)">
-        <div class="phase-header">
+      <div class="phase-inner" style="--phase-color:#ff3355">
+        <div class="phase-header" onclick="toggle(this.closest('.phase-inner'))">
           <div class="phase-number">PHASE 04</div>
           <div class="phase-title-block">
             <div class="phase-title">Controlled Offensive + Multi-Cloud</div>
@@ -692,8 +690,8 @@
          PHASE 05 — CLOUD SECURITY ENGINEERING
     ══════════════════════════════════════ -->
     <div class="phase">
-      <div class="phase-inner" style="--phase-color:#aa55ff" onclick="toggle(this)">
-        <div class="phase-header">
+      <div class="phase-inner" style="--phase-color:#aa55ff">
+        <div class="phase-header" onclick="toggle(this.closest('.phase-inner'))">
           <div class="phase-number">PHASE 05</div>
           <div class="phase-title-block">
             <div class="phase-title">Cloud Security Engineering + AI</div>
@@ -917,6 +915,6 @@
   </div>
 
 </div>
-<script src="script.js"></script>
+<script src="script.js?v=2.6"></script>
 </body>
 </html>
