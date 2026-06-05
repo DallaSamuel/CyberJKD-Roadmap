@@ -191,7 +191,6 @@ body::before {
   border-top: 2px solid var(--phase-color, var(--blue));
   position: relative;
   transition: box-shadow 0.3s;
-  cursor: pointer;
   overflow: hidden;
 }
 .phase-inner:hover {
@@ -213,6 +212,8 @@ body::before {
   align-items: center;
   gap: 14px;
   padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
   flex-wrap: wrap;
   background: rgba(0,0,0,0.2);
 }
