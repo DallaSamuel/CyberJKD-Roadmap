@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dallasamuel.github.io/CyberJKD-Roadmap/sitemap.xml
