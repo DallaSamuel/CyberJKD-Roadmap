@@ -98,20 +98,21 @@ function restoreState() {
       state = null;
     }
     if (state && typeof state === 'object' && !Array.isArray(state)) {
+      // Returning visitor — restore exactly how they left it, phase by phase.
       phases.forEach(p => {
         const key = p.dataset.phase;
-        if (key && state[key]) setExpanded(p, true);
+        setExpanded(p, !!(key && state[key]));
       });
     } else if (Array.isArray(state)) {
       // Legacy positional format from an earlier version — migrate it once,
       // matched by position, then re-save keyed by phase id going forward.
       phases.forEach((p, i) => {
-        if (state[i]) setExpanded(p, true);
+        setExpanded(p, !!state[i]);
       });
       saveState();
     }
   } else if (!hasDeepLink) {
-    // Default (first-ever visit, no direct link to a phase) — Phase 01 open only
+    // First-ever visit, no saved state, no direct link — Phase 01 open only.
     if (phases[0]) {
       setTimeout(() => {
         setExpanded(phases[0], true);
