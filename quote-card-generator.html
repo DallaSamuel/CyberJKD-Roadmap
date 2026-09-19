@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Card Generator — CyberJKD</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap");
+
+  :root {
+    --bg: #050810;
+    --bg2: #080d1a;
+    --panel: #0a1020;
+    --border: #1a2a4a;
+    --blue: #00aaff;
+    --blue-dim: #005580;
+    --cyan: #00ffcc;
+    --gold: #ffcc00;
+    --text: #c8d8f0;
+    --text-dim: #4a6080;
+    --ink: var(--text);
+    --ink-dim: var(--text-dim);
+    --accent: var(--cyan);
+    --mono: 'Nunito', sans-serif;
+    --sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    --display: 'Cormorant Garamond', serif;
+  }
+  :root[data-theme="light"] { --bg: #050810; }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    position: relative;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,170,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,170,255,0.02) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .topbar {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    background: rgba(0,0,0,0.2);
+  }
+  .topbar .mark {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--cyan);
+    text-shadow: 0 0 16px rgba(0,255,204,0.35);
+    font-size: 20px;
+  }
+  .topbar h1 {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+  }
+  .topbar .sub {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-left: auto;
+  }
+
+  .layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 0;
+    min-height: calc(100vh - 60px);
+  }
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .controls {
+    border-right: 1px solid var(--border);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.15);
+  }
+  @media (max-width: 860px) {
+    .controls { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+
+  .field label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+  .field input[type="text"],
+  .field textarea {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: #fff;
+    padding: 10px 12px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    resize: vertical;
+  }
+  .field textarea { min-height: 90px; line-height: 1.5; }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px rgba(0,255,204,0.25);
+  }
+
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .toggle {
+    position: relative;
+    width: 38px;
+    height: 21px;
+    background: var(--border);
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background 0.15s;
+    flex-shrink: 0;
+    border: none;
+    padding: 0;
+  }
+  .toggle[data-on="true"] { background: var(--cyan); box-shadow: 0 0 10px rgba(0,255,204,0.4); }
+  .toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 17px; height: 17px;
+    border-radius: 50%;
+    background: var(--panel);
+    transition: transform 0.15s;
+  }
+  .toggle[data-on="true"]::after { transform: translateX(17px); background: #041008; }
+
+  .seg {
+    display: flex;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .seg button {
+    flex: 1;
+    background: var(--panel);
+    border: none;
+    color: var(--text-dim);
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 9px 0;
+    cursor: pointer;
+  }
+  .seg button[data-active="true"] {
+    background: rgba(0,255,204,0.08);
+    color: var(--cyan);
+    box-shadow: inset 0 -2px 0 var(--cyan);
+  }
+
+  .avatar-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .avatar-preview {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--border);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .file-btn {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: rgba(0,255,204,0.05);
+    border: 1px solid rgba(0,255,204,0.3);
+    border-radius: 2px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .file-btn:hover { border-color: var(--cyan); background: rgba(0,255,204,0.1); }
+  input[type="file"] { display: none; }
+
+  .actions {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: #041008;
+    border: none;
+    border-radius: 2px;
+    padding: 13px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0,255,204,0.15);
+  }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+  .hint {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .preview-pane {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+  }
+
+  /* --- the card itself, styled like an authentic X post screenshot --- */
+  #card-wrap { display: inline-block; }
+  #card {
+    width: 560px;
+    background: #ffffff;
+    color: #0f1419;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 34px 32px 38px;
+    border-radius: 0;
+  }
+  #card[data-dark="true"] {
+    background: #000000;
+    color: #e7e9ea;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .card-avatar {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    background: #cfd9de;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+  .card-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .card-badge { width: 22px; height: 22px; flex-shrink: 0; }
+  .card-handle {
+    font-size: 18px;
+    color: #536471;
+    margin-top: 2px;
+  }
+  #card[data-dark="true"] .card-handle { color: #71767b; }
+  .card-body {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .card-watermark {
+    margin-top: 22px;
+    text-align: right;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #536471;
+  }
+  #card[data-dark="true"] .card-watermark { color: #71767b; }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px 0 6px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="mark">CyberJKD</span>
+  <h1>Quote Card Generator</h1>
+  <span class="sub">Tools</span>
+</div>
+
+<div class="layout">
+  <div class="controls">
+
+    <div class="field">
+      <label>Display name</label>
+      <input type="text" id="in-name" value="CyberJKD" maxlength="50">
+    </div>
+
+    <div class="field">
+      <label>Handle</label>
+      <input type="text" id="in-handle" value="@CyberJKD_" maxlength="30">
+    </div>
+
+    <div class="field">
+      <label>Avatar</label>
+      <div class="avatar-upload">
+        <div class="avatar-preview" id="avatar-preview"></div>
+        <button class="file-btn" id="avatar-btn" type="button">Upload image</button>
+        <input type="file" id="avatar-file" accept="image/*">
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <span>Verified badge</span>
+      <button class="toggle" id="toggle-verified" data-on="true"></button>
+    </div>
+
+    <div class="field">
+      <label>Theme</label>
+      <div class="seg">
+        <button data-theme-choice="light" data-active="true">Light</button>
+        <button data-theme-choice="dark" data-active="false">Dark</button>
+      </div>
+    </div>
+
+    <div class="field" style="flex:1; display:flex; flex-direction:column;">
+      <label>Quote text</label>
+      <textarea id="in-text" style="flex:1;">You become undeniable the moment you decide mediocrity is unacceptable.</textarea>
+      <button class="file-btn" id="btn-tagline" type="button" style="margin-top:8px; align-self:flex-start;">Insert signature tagline</button>
+    </div>
+
+    <div class="toggle-row">
+      <span>CyberJKD watermark</span>
+      <button class="toggle" id="toggle-watermark" data-on="true"></button>
+    </div>
+
+    <div class="field">
+      <label>Export size</label>
+      <div class="seg">
+        <button data-size-choice="auto" data-active="true">Auto (X/LinkedIn)</button>
+        <button data-size-choice="square" data-active="false">Square (IG/FB)</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="btn-download">Download PNG</button>
+      <div class="hint">Renders a static image. For your own quotes only — don't attribute invented lines to real people.</div>
+      <button class="file-btn" id="btn-reset" type="button" style="margin-top:4px; align-self:flex-start; opacity:0.6;">Reset saved avatar &amp; settings</button>
+    </div>
+
+  </div>
+
+  <div class="preview-pane">
+    <div id="card-wrap">
+      <div id="card" data-dark="false">
+        <div class="card-header">
+          <div class="card-avatar" id="card-avatar"></div>
+          <div>
+            <div class="card-name-row">
+              <span id="card-name">CyberJKD</span>
+              <svg class="card-badge" id="card-badge" viewBox="0 0 22 22" fill="#1d9bf0"><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.85-1.245 1.44c-.607-.223-1.264-.27-1.897-.14-.634.131-1.218.437-1.687.882-.445.47-.75 1.053-.882 1.687-.13.633-.083 1.29.14 1.897-.587.274-1.085.706-1.439 1.246-.354.54-.551 1.17-.569 1.816.018.646.215 1.276.57 1.817.354.54.852.972 1.438 1.245-.223.607-.27 1.264-.14 1.897.131.634.437 1.217.882 1.687.47.444 1.053.75 1.687.881.633.131 1.29.084 1.897-.14.274.588.705 1.087 1.245 1.44.54.354 1.17.552 1.813.569.647-.017 1.276-.213 1.816-.568s.972-.852 1.245-1.44c.607.223 1.264.27 1.897.14.634-.132 1.217-.437 1.687-.882.444-.47.75-1.053.882-1.687.13-.633.083-1.29-.14-1.897.586-.273 1.084-.705 1.438-1.245.354-.54.551-1.17.57-1.816zM9.662 14.85l-3.429-3.428 1.414-1.414 2.015 2.014 4.223-4.223 1.414 1.414-5.637 5.637z"/></svg>
+            </div>
+            <div class="card-handle" id="card-handle">@CyberJKD_</div>
+          </div>
+        </div>
+        <div class="card-body" id="card-body">You become undeniable the moment you decide mediocrity is unacceptable.</div>
+        <div class="card-watermark" id="card-watermark">CyberJKD</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>host it: save this file as index.html in a repo and enable GitHub Pages — no build step required</footer>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  const inName = $('in-name'), inHandle = $('in-handle'), inText = $('in-text');
+  const cardName = $('card-name'), cardHandle = $('card-handle'), cardBody = $('card-body');
+  const cardBadge = $('card-badge'), card = $('card');
+  const avatarPreview = $('avatar-preview'), cardAvatar = $('card-avatar');
+  const avatarBtn = $('avatar-btn'), avatarFile = $('avatar-file');
+  const toggleVerified = $('toggle-verified');
+  const toggleWatermark = $('toggle-watermark');
+  const cardWatermark = $('card-watermark');
+  const btnTagline = $('btn-tagline');
+  const downloadBtn = $('btn-download');
+  let exportSize = 'auto';
+
+  function sync() {
+    cardName.textContent = inName.value || 'Name';
+    cardHandle.textContent = inHandle.value.startsWith('@') ? inHandle.value : '@' + inHandle.value;
+    cardBody.textContent = inText.value;
+    // scale body font down for long text so it doesn't overflow oddly
+    const len = inText.value.length;
+    let size = 30;
+    if (len > 220) size = 22;
+    else if (len > 150) size = 25;
+    else if (len > 90) size = 28;
+    cardBody.style.fontSize = size + 'px';
+    saveSettings();
+  }
+  [inName, inHandle, inText].forEach(el => el.addEventListener('input', sync));
+
+  toggleVerified.addEventListener('click', () => {
+    const on = toggleVerified.dataset.on !== 'true';
+    toggleVerified.dataset.on = on;
+    cardBadge.style.display = on ? 'block' : 'none';
+    saveSettings();
+  });
+
+  toggleWatermark.addEventListener('click', () => {
+    const on = toggleWatermark.dataset.on !== 'true';
+    toggleWatermark.dataset.on = on;
+    cardWatermark.style.display = on ? 'block' : 'none';
+    saveSettings();
+  });
+
+  btnTagline.addEventListener('click', () => {
+    inText.value = 'Becoming dangerous through fundamentals \u{1F512}. \u2014 CyberJKD';
+    sync();
+  });
+
+  document.querySelectorAll('[data-theme-choice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-theme-choice]').forEach(b => b.dataset.active = 'false');
+      btn.dataset.active = 'true';
+      const dark = btn.dataset.themeChoice === 'dark';
+      card.dataset.dark = dark;
+      saveSettings();
+    });
+  });
+
+  document.querySelectorAll('[data-size-choice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[data-size-choice]').forEach(b => b.dataset.active = 'false');
+      btn.dataset.active = 'true';
+      exportSize = btn.dataset.sizeChoice;
+      saveSettings();
+    });
+  });
+
+  avatarBtn.addEventListener('click', () => avatarFile.click());
+  avatarFile.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      resizeImage(ev.target.result, 200, (resizedDataUrl) => {
+        applyAvatar(resizedDataUrl);
+        try {
+          localStorage.setItem('cyberjkd_avatar', resizedDataUrl);
+        } catch (err) {
+          // storage full or unavailable — avatar still works for this session
+        }
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function applyAvatar(dataUrl) {
+    const url = `url(${dataUrl})`;
+    avatarPreview.style.backgroundImage = url;
+    cardAvatar.style.backgroundImage = url;
+  }
+
+  function resizeImage(dataUrl, maxSize, callback) {
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, maxSize / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width * scale;
+      canvas.height = img.height * scale;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      callback(canvas.toDataURL('image/jpeg', 0.85));
+    };
+    img.src = dataUrl;
+  }
+
+  // Restore a previously saved avatar for this browser, if any.
+  (function restoreAvatar() {
+    try {
+      const saved = localStorage.getItem('cyberjkd_avatar');
+      if (saved) applyAvatar(saved);
+    } catch (err) {
+      // storage unavailable — no default avatar, that's fine
+    }
+  })();
+
+  function saveSettings() {
+    try {
+      const settings = {
+        name: inName.value,
+        handle: inHandle.value,
+        verified: toggleVerified.dataset.on === 'true',
+        watermark: toggleWatermark.dataset.on === 'true',
+        dark: card.dataset.dark === 'true',
+        exportSize: exportSize
+      };
+      localStorage.setItem('cyberjkd_settings', JSON.stringify(settings));
+    } catch (err) {
+      // storage unavailable — settings just won't persist this session
+    }
+  }
+
+  function restoreSettings() {
+    try {
+      const raw = localStorage.getItem('cyberjkd_settings');
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (typeof s.name === 'string') inName.value = s.name;
+      if (typeof s.handle === 'string') inHandle.value = s.handle;
+
+      toggleVerified.dataset.on = String(!!s.verified);
+      cardBadge.style.display = s.verified ? 'block' : 'none';
+
+      toggleWatermark.dataset.on = String(!!s.watermark);
+      cardWatermark.style.display = s.watermark ? 'block' : 'none';
+
+      card.dataset.dark = String(!!s.dark);
+      document.querySelectorAll('[data-theme-choice]').forEach(b => {
+        b.dataset.active = String((b.dataset.themeChoice === 'dark') === !!s.dark);
+      });
+
+      if (s.exportSize === 'square' || s.exportSize === 'auto') {
+        exportSize = s.exportSize;
+        document.querySelectorAll('[data-size-choice]').forEach(b => {
+          b.dataset.active = String(b.dataset.sizeChoice === exportSize);
+        });
+      }
+    } catch (err) {
+      // corrupted or unavailable — just fall back to defaults
+    }
+  }
+
+  restoreSettings();
+
+  $('btn-reset').addEventListener('click', () => {
+    if (!confirm('Clear your saved avatar, name, handle, and theme from this browser?')) return;
+    try {
+      localStorage.removeItem('cyberjkd_avatar');
+      localStorage.removeItem('cyberjkd_settings');
+    } catch (err) {}
+    location.reload();
+  });
+
+  let downloadsApi = null;
+  (async () => {
+    try {
+      downloadsApi = await window.claude?.use?.('downloads');
+    } catch (e) { downloadsApi = null; }
+  })();
+
+  downloadBtn.addEventListener('click', async () => {
+    downloadBtn.disabled = true;
+    const originalLabel = downloadBtn.textContent;
+    downloadBtn.textContent = 'Rendering...';
+    try {
+      const canvas = await html2canvas(card, { scale: 3, backgroundColor: card.dataset.dark === 'true' ? '#000000' : '#ffffff' });
+      let finalCanvas = canvas;
+      if (exportSize === 'square') {
+        const side = Math.max(canvas.width, canvas.height);
+        const sq = document.createElement('canvas');
+        sq.width = side;
+        sq.height = side;
+        const ctx = sq.getContext('2d');
+        ctx.fillStyle = card.dataset.dark === 'true' ? '#000000' : '#ffffff';
+        ctx.fillRect(0, 0, side, side);
+        ctx.drawImage(canvas, (side - canvas.width) / 2, (side - canvas.height) / 2);
+        finalCanvas = sq;
+      }
+      finalCanvas.toBlob(async (blob) => {
+        const filename = 'quote-card-' + Date.now() + '.png';
+        if (downloadsApi) {
+          const arrayBuf = await blob.arrayBuffer();
+          try {
+            await downloadsApi.save({ filename, data: arrayBuf });
+          } catch (err) {
+            fallbackDownload(blob, filename);
+          }
+        } else {
+          fallbackDownload(blob, filename);
+        }
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = originalLabel;
+      }, 'image/png');
+    } catch (err) {
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = originalLabel;
+      alert('Render failed — try again.');
+    }
+  });
+
+  function fallbackDownload(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  sync();
+</script>
+
+</body>
+</html>
