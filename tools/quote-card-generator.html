@@ -395,8 +395,12 @@
 
     <div class="field" style="flex:1; display:flex; flex-direction:column;">
       <label>Quote text</label>
+      <div style="display:flex; gap:8px; margin-bottom:6px;">
+        <button class="file-btn" id="btn-bold" type="button" style="font-weight:900; padding:6px 11px;" title="Bold selected text (Ctrl/Cmd+B)">B</button>
+        <button class="file-btn" id="btn-tagline" type="button">Insert signature tagline</button>
+      </div>
       <textarea id="in-text" style="flex:1;">You become undeniable the moment you decide mediocrity is unacceptable.</textarea>
-      <button class="file-btn" id="btn-tagline" type="button" style="margin-top:8px; align-self:flex-start;">Insert signature tagline</button>
+      <div class="hint" style="margin-top:6px;">Select text and click B to bold it — works in batch quotes too.</div>
     </div>
 
     <div class="toggle-row">
@@ -464,10 +468,18 @@
   const downloadBtn = $('btn-download');
   let exportSize = 'auto';
 
+  function escapeHtml(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function renderQuoteHTML(text) {
+    return escapeHtml(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  }
+
   function sync() {
     cardName.textContent = inName.value || 'Name';
     cardHandle.textContent = inHandle.value.startsWith('@') ? inHandle.value : '@' + inHandle.value;
-    cardBody.textContent = inText.value;
+    cardBody.innerHTML = renderQuoteHTML(inText.value);
     // scale body font down for long text so it doesn't overflow oddly
     const len = inText.value.length;
     let size = 30;
@@ -491,6 +503,43 @@
     toggleWatermark.dataset.on = on;
     cardWatermark.style.display = on ? 'block' : 'none';
     saveSettings();
+  });
+
+  const btnBold = $('btn-bold');
+  function toggleBold() {
+    const start = inText.selectionStart;
+    const end = inText.selectionEnd;
+    if (start === end) return;
+    const value = inText.value;
+    const selected = value.slice(start, end);
+    const before2 = value.slice(Math.max(0, start - 2), start);
+    const after2 = value.slice(end, end + 2);
+
+    if (selected.startsWith('**') && selected.endsWith('**') && selected.length >= 4) {
+      const unwrapped = selected.slice(2, -2);
+      inText.value = value.slice(0, start) + unwrapped + value.slice(end);
+      sync();
+      inText.focus();
+      inText.setSelectionRange(start, start + unwrapped.length);
+    } else if (before2 === '**' && after2 === '**') {
+      inText.value = value.slice(0, start - 2) + selected + value.slice(end + 2);
+      sync();
+      inText.focus();
+      inText.setSelectionRange(start - 2, end - 2);
+    } else {
+      const wrapped = '**' + selected + '**';
+      inText.value = value.slice(0, start) + wrapped + value.slice(end);
+      sync();
+      inText.focus();
+      inText.setSelectionRange(start, start + wrapped.length);
+    }
+  }
+  btnBold.addEventListener('click', toggleBold);
+  inText.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
+      e.preventDefault();
+      toggleBold();
+    }
   });
 
   btnTagline.addEventListener('click', () => {
