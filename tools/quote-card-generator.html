@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quote Card Generator — CyberJKD</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&display=swap");
@@ -412,8 +413,15 @@
       </div>
     </div>
 
+    <div class="field">
+      <label>Batch generate</label>
+      <textarea id="in-batch" placeholder="Paste multiple quotes here — separate each with a blank line.&#10;&#10;Quote one goes here.&#10;&#10;Quote two goes here." style="min-height:110px;"></textarea>
+      <div class="hint" style="margin-top:6px;">Uses your current name, handle, avatar, theme &amp; export size for every card.</div>
+    </div>
+
     <div class="actions">
       <button class="btn-primary" id="btn-download">Download PNG</button>
+      <button class="btn-primary" id="btn-batch" style="background:transparent; color:var(--cyan); border:1px solid var(--cyan); box-shadow:none;">Generate batch (ZIP)</button>
       <div class="hint">Renders a static image. For your own quotes only — don't attribute invented lines to real people.</div>
       <button class="file-btn" id="btn-reset" type="button" style="margin-top:4px; align-self:flex-start; opacity:0.6;">Reset saved avatar &amp; settings</button>
     </div>
@@ -440,7 +448,7 @@
   </div>
 </div>
 
-<footer> Becoming dangerous through fundamentals 🔒. - CyberJKD </footer>
+<footer>host it: save this file as index.html in a repo and enable GitHub Pages — no build step required</footer>
 
 <script>
   const $ = (id) => document.getElementById(id);
@@ -622,43 +630,90 @@
     } catch (e) { downloadsApi = null; }
   })();
 
+  async function renderCardBlob() {
+    const canvas = await html2canvas(card, { scale: 3, backgroundColor: card.dataset.dark === 'true' ? '#000000' : '#ffffff' });
+    let finalCanvas = canvas;
+    if (exportSize === 'square') {
+      const side = Math.max(canvas.width, canvas.height);
+      const sq = document.createElement('canvas');
+      sq.width = side;
+      sq.height = side;
+      const ctx = sq.getContext('2d');
+      ctx.fillStyle = card.dataset.dark === 'true' ? '#000000' : '#ffffff';
+      ctx.fillRect(0, 0, side, side);
+      ctx.drawImage(canvas, (side - canvas.width) / 2, (side - canvas.height) / 2);
+      finalCanvas = sq;
+    }
+    return new Promise((resolve) => finalCanvas.toBlob(resolve, 'image/png'));
+  }
+
   downloadBtn.addEventListener('click', async () => {
     downloadBtn.disabled = true;
     const originalLabel = downloadBtn.textContent;
     downloadBtn.textContent = 'Rendering...';
     try {
-      const canvas = await html2canvas(card, { scale: 3, backgroundColor: card.dataset.dark === 'true' ? '#000000' : '#ffffff' });
-      let finalCanvas = canvas;
-      if (exportSize === 'square') {
-        const side = Math.max(canvas.width, canvas.height);
-        const sq = document.createElement('canvas');
-        sq.width = side;
-        sq.height = side;
-        const ctx = sq.getContext('2d');
-        ctx.fillStyle = card.dataset.dark === 'true' ? '#000000' : '#ffffff';
-        ctx.fillRect(0, 0, side, side);
-        ctx.drawImage(canvas, (side - canvas.width) / 2, (side - canvas.height) / 2);
-        finalCanvas = sq;
-      }
-      finalCanvas.toBlob(async (blob) => {
-        const filename = 'quote-card-' + Date.now() + '.png';
-        if (downloadsApi) {
-          const arrayBuf = await blob.arrayBuffer();
-          try {
-            await downloadsApi.save({ filename, data: arrayBuf });
-          } catch (err) {
-            fallbackDownload(blob, filename);
-          }
-        } else {
+      const blob = await renderCardBlob();
+      const filename = 'quote-card-' + Date.now() + '.png';
+      if (downloadsApi) {
+        const arrayBuf = await blob.arrayBuffer();
+        try {
+          await downloadsApi.save({ filename, data: arrayBuf });
+        } catch (err) {
           fallbackDownload(blob, filename);
         }
-        downloadBtn.disabled = false;
-        downloadBtn.textContent = originalLabel;
-      }, 'image/png');
+      } else {
+        fallbackDownload(blob, filename);
+      }
     } catch (err) {
+      alert('Render failed — try again.');
+    } finally {
       downloadBtn.disabled = false;
       downloadBtn.textContent = originalLabel;
-      alert('Render failed — try again.');
+    }
+  });
+
+  const batchBtn = $('btn-batch');
+  const inBatch = $('in-batch');
+  batchBtn.addEventListener('click', async () => {
+    const quotes = inBatch.value.split(/\n\s*\n/).map(q => q.trim()).filter(Boolean);
+    if (!quotes.length) { alert('Paste at least one quote into the batch box first.'); return; }
+
+    const originalText = inText.value;
+    batchBtn.disabled = true;
+    downloadBtn.disabled = true;
+    const originalLabel = batchBtn.textContent;
+
+    try {
+      const zip = new JSZip();
+      for (let i = 0; i < quotes.length; i++) {
+        batchBtn.textContent = `Rendering ${i + 1} / ${quotes.length}...`;
+        inText.value = quotes[i];
+        sync();
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const blob = await renderCardBlob();
+        zip.file(`quote-card-${String(i + 1).padStart(2, '0')}.png`, blob);
+      }
+      batchBtn.textContent = 'Zipping...';
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const filename = 'cyberjkd-quote-cards-' + Date.now() + '.zip';
+      if (downloadsApi) {
+        const arrayBuf = await zipBlob.arrayBuffer();
+        try {
+          await downloadsApi.save({ filename, data: arrayBuf });
+        } catch (err) {
+          fallbackDownload(zipBlob, filename);
+        }
+      } else {
+        fallbackDownload(zipBlob, filename);
+      }
+    } catch (err) {
+      alert('Batch render failed — try again.');
+    } finally {
+      inText.value = originalText;
+      sync();
+      batchBtn.disabled = false;
+      downloadBtn.disabled = false;
+      batchBtn.textContent = originalLabel;
     }
   });
 
