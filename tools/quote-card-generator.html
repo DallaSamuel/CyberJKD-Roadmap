@@ -418,8 +418,8 @@
 
     <div class="field">
       <label>Batch generate</label>
-      <textarea id="in-batch" placeholder="Paste multiple quotes here — separate each with a blank line.&#10;&#10;Quote one goes here.&#10;&#10;Quote two goes here." style="min-height:110px;"></textarea>
-      <div class="hint" style="margin-top:6px;">Uses your current name, handle, avatar, theme &amp; export size for every card.</div>
+      <textarea id="in-batch" placeholder="Separate cards with a line containing ---&#10;Blank lines inside a quote just create a paragraph break.&#10;&#10;Quote one, first line.&#10;&#10;Quote one, second paragraph.&#10;---&#10;Quote two goes here." style="min-height:130px;"></textarea>
+      <div class="hint" style="margin-top:6px;">Uses your current name, handle, avatar, theme &amp; export size for every card. Blank lines = paragraph break; a line with <strong>---</strong> = new card.</div>
     </div>
 
     <div class="actions">
@@ -723,7 +723,7 @@
   const batchBtn = $('btn-batch');
   const inBatch = $('in-batch');
   batchBtn.addEventListener('click', async () => {
-    const quotes = inBatch.value.split(/\n\s*\n/).map(q => q.trim()).filter(Boolean);
+    const quotes = inBatch.value.split(/\n[ \t]*-{3,}[ \t]*\n/).map(q => q.trim()).filter(Boolean);
     if (!quotes.length) { alert('Paste at least one quote into the batch box first.'); return; }
 
     const originalText = inText.value;
