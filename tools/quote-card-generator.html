@@ -12,23 +12,14 @@
 
   :root {
     --bg: #050810;
-    --bg2: #080d1a;
     --panel: #0a1020;
     --border: #1a2a4a;
-    --blue: #00aaff;
-    --blue-dim: #005580;
     --cyan: #00ffcc;
-    --gold: #ffcc00;
     --text: #c8d8f0;
     --text-dim: #4a6080;
-    --ink: var(--text);
-    --ink-dim: var(--text-dim);
-    --accent: var(--cyan);
-    --mono: 'Nunito', sans-serif;
     --sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
     --display: 'Cormorant Garamond', serif;
   }
-  :root[data-theme="light"] { --bg: #050810; }
 
   * { box-sizing: border-box; }
   body {
@@ -144,8 +135,6 @@
     box-shadow: 0 0 0 1px rgba(0,255,204,0.25);
   }
 
-  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
   .toggle-row {
     display: flex;
     align-items: center;
@@ -257,6 +246,12 @@
   }
   .btn-primary:hover { filter: brightness(1.08); }
   .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+  .btn-secondary {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    box-shadow: none;
+  }
   .hint {
     font-family: var(--sans);
     font-size: 11px;
@@ -269,10 +264,55 @@
     position: relative;
     z-index: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 40px 24px;
+    gap: 16px;
   }
+
+  .preview-nav-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .preview-nav {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--cyan);
+    font-size: 24px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .preview-nav:hover { background: rgba(0,255,204,0.1); }
+  .preview-nav:disabled { opacity: 0.2; cursor: default; }
+  #preview-counter {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-dim);
+    min-width: 50px;
+    text-align: center;
+  }
+  #preview-dots {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90vw;
+  }
+  #preview-dots span {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+  }
+  #preview-dots span.active { background: var(--cyan); }
 
   /* --- the card itself, styled like an authentic X post screenshot --- */
   #card-wrap { display: inline-block; }
@@ -394,13 +434,13 @@
     </div>
 
     <div class="field" style="flex:1; display:flex; flex-direction:column;">
-      <label>Quote text</label>
+      <label>Quotes</label>
       <div style="display:flex; gap:8px; margin-bottom:6px;">
         <button class="file-btn" id="btn-bold" type="button" style="font-weight:900; padding:6px 11px;" title="Bold selected text (Ctrl/Cmd+B)">B</button>
-        <button class="file-btn" id="btn-tagline" type="button">Insert signature tagline</button>
+        <button class="file-btn" id="btn-tagline" type="button">Insert tagline</button>
       </div>
-      <textarea id="in-text" style="flex:1;">You become undeniable the moment you decide mediocrity is unacceptable.</textarea>
-      <div class="hint" style="margin-top:6px;">Select text and click B to bold it — works in batch quotes too.</div>
+      <textarea id="in-quotes" style="flex:1; min-height:160px;">You become undeniable the moment you decide mediocrity is unacceptable.</textarea>
+      <div class="hint" style="margin-top:6px;">One quote or many — the card on the right updates live. Blank line = paragraph break inside a quote; a line with <strong>---</strong> starts the next card.</div>
     </div>
 
     <div class="toggle-row">
@@ -416,15 +456,9 @@
       </div>
     </div>
 
-    <div class="field">
-      <label>Batch generate</label>
-      <textarea id="in-batch" placeholder="Separate cards with a line containing ---&#10;Blank lines inside a quote just create a paragraph break.&#10;&#10;Quote one, first line.&#10;&#10;Quote one, second paragraph.&#10;---&#10;Quote two goes here." style="min-height:130px;"></textarea>
-      <div class="hint" style="margin-top:6px;">Uses your current name, handle, avatar, theme &amp; export size for every card. Blank lines = paragraph break; a line with <strong>---</strong> = new card.</div>
-    </div>
-
     <div class="actions">
-      <button class="btn-primary" id="btn-download">Download PNG</button>
-      <button class="btn-primary" id="btn-batch" style="background:transparent; color:var(--cyan); border:1px solid var(--cyan); box-shadow:none;">Generate batch (ZIP)</button>
+      <button class="btn-primary" id="btn-download">Download current PNG</button>
+      <button class="btn-primary btn-secondary" id="btn-download-all">Download all (ZIP)</button>
       <div class="hint">Renders a static image. For your own quotes only — don't attribute invented lines to real people.</div>
       <button class="file-btn" id="btn-reset" type="button" style="margin-top:4px; align-self:flex-start; opacity:0.6;">Reset saved avatar &amp; settings</button>
     </div>
@@ -448,6 +482,13 @@
         <div class="card-watermark" id="card-watermark">CyberJKD</div>
       </div>
     </div>
+
+    <div class="preview-nav-row" id="preview-nav-row" style="display:none;">
+      <button class="preview-nav" id="preview-prev" type="button" aria-label="Previous">&lsaquo;</button>
+      <span id="preview-counter">1 / 1</span>
+      <button class="preview-nav" id="preview-next" type="button" aria-label="Next">&rsaquo;</button>
+    </div>
+    <div id="preview-dots"></div>
   </div>
 </div>
 
@@ -456,7 +497,7 @@
 <script>
   const $ = (id) => document.getElementById(id);
 
-  const inName = $('in-name'), inHandle = $('in-handle'), inText = $('in-text');
+  const inName = $('in-name'), inHandle = $('in-handle'), inQuotes = $('in-quotes');
   const cardName = $('card-name'), cardHandle = $('card-handle'), cardBody = $('card-body');
   const cardBadge = $('card-badge'), card = $('card');
   const avatarPreview = $('avatar-preview'), cardAvatar = $('card-avatar');
@@ -466,30 +507,109 @@
   const cardWatermark = $('card-watermark');
   const btnTagline = $('btn-tagline');
   const downloadBtn = $('btn-download');
+  const downloadAllBtn = $('btn-download-all');
+  const navRow = $('preview-nav-row');
+  const prevBtn = $('preview-prev');
+  const nextBtn = $('preview-next');
+  const counterEl = $('preview-counter');
+  const dotsEl = $('preview-dots');
   let exportSize = 'auto';
+  let currentIndex = 0;
+  let quotes = [];
 
   function escapeHtml(str) {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
-
   function renderQuoteHTML(text) {
     return escapeHtml(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   }
 
-  function sync() {
+  // Splits the shared textarea into quotes, keeping each quote's start/end
+  // offset in the raw text so we can tell which quote the cursor is inside.
+  function parseQuotes(text) {
+    const sepRe = /\n[ \t]*-{3,}[ \t]*\n/g;
+    let lastEnd = 0, match;
+    const out = [];
+    while ((match = sepRe.exec(text)) !== null) {
+      out.push({ raw: text.slice(lastEnd, match.index), start: lastEnd, end: match.index });
+      lastEnd = sepRe.lastIndex;
+    }
+    out.push({ raw: text.slice(lastEnd), start: lastEnd, end: text.length });
+    return out.filter(q => q.raw.trim().length > 0);
+  }
+
+  function indexForCursor(pos) {
+    for (let i = 0; i < quotes.length; i++) {
+      if (pos >= quotes[i].start && pos <= quotes[i].end) return i;
+    }
+    return quotes.length - 1;
+  }
+
+  function renderPreview() {
     cardName.textContent = inName.value || 'Name';
     cardHandle.textContent = inHandle.value.startsWith('@') ? inHandle.value : '@' + inHandle.value;
-    cardBody.innerHTML = renderQuoteHTML(inText.value);
-    // scale body font down for long text so it doesn't overflow oddly
-    const len = inText.value.length;
+
+    const current = quotes[currentIndex] ? quotes[currentIndex].raw.trim() : '';
+    cardBody.innerHTML = renderQuoteHTML(current);
+    const len = current.length;
     let size = 30;
     if (len > 220) size = 22;
     else if (len > 150) size = 25;
     else if (len > 90) size = 28;
     cardBody.style.fontSize = size + 'px';
+
+    const multi = quotes.length > 1;
+    navRow.style.display = multi ? 'flex' : 'none';
+    dotsEl.style.display = multi ? 'flex' : 'none';
+    if (multi) {
+      counterEl.textContent = `${currentIndex + 1} / ${quotes.length}`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === quotes.length - 1;
+      if (dotsEl.children.length !== quotes.length) {
+        dotsEl.innerHTML = '';
+        quotes.forEach((_, i) => {
+          const dot = document.createElement('span');
+          dot.addEventListener('click', () => { currentIndex = i; renderPreview(); });
+          dotsEl.appendChild(dot);
+        });
+      }
+      [...dotsEl.children].forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    }
     saveSettings();
   }
-  [inName, inHandle, inText].forEach(el => el.addEventListener('input', sync));
+
+  function refreshFromTextarea(preserveCursorQuote) {
+    quotes = parseQuotes(inQuotes.value);
+    if (!quotes.length) quotes = [{ raw: '', start: 0, end: 0 }];
+    if (preserveCursorQuote) {
+      currentIndex = indexForCursor(inQuotes.selectionStart);
+    } else if (currentIndex >= quotes.length) {
+      currentIndex = quotes.length - 1;
+    }
+    renderPreview();
+  }
+
+  inQuotes.addEventListener('input', () => refreshFromTextarea(true));
+  inQuotes.addEventListener('click', () => refreshFromTextarea(true));
+  inQuotes.addEventListener('keyup', (e) => {
+    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) refreshFromTextarea(true);
+  });
+  [inName, inHandle].forEach(el => el.addEventListener('input', renderPreview));
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex === 0) return;
+    currentIndex--;
+    inQuotes.focus();
+    inQuotes.setSelectionRange(quotes[currentIndex].start, quotes[currentIndex].end);
+    renderPreview();
+  });
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex === quotes.length - 1) return;
+    currentIndex++;
+    inQuotes.focus();
+    inQuotes.setSelectionRange(quotes[currentIndex].start, quotes[currentIndex].end);
+    renderPreview();
+  });
 
   toggleVerified.addEventListener('click', () => {
     const on = toggleVerified.dataset.on !== 'true';
@@ -507,35 +627,33 @@
 
   const btnBold = $('btn-bold');
   function toggleBold() {
-    const start = inText.selectionStart;
-    const end = inText.selectionEnd;
+    const start = inQuotes.selectionStart;
+    const end = inQuotes.selectionEnd;
     if (start === end) return;
-    const value = inText.value;
+    const value = inQuotes.value;
     const selected = value.slice(start, end);
     const before2 = value.slice(Math.max(0, start - 2), start);
     const after2 = value.slice(end, end + 2);
 
     if (selected.startsWith('**') && selected.endsWith('**') && selected.length >= 4) {
       const unwrapped = selected.slice(2, -2);
-      inText.value = value.slice(0, start) + unwrapped + value.slice(end);
-      sync();
-      inText.focus();
-      inText.setSelectionRange(start, start + unwrapped.length);
+      inQuotes.value = value.slice(0, start) + unwrapped + value.slice(end);
+      inQuotes.focus();
+      inQuotes.setSelectionRange(start, start + unwrapped.length);
     } else if (before2 === '**' && after2 === '**') {
-      inText.value = value.slice(0, start - 2) + selected + value.slice(end + 2);
-      sync();
-      inText.focus();
-      inText.setSelectionRange(start - 2, end - 2);
+      inQuotes.value = value.slice(0, start - 2) + selected + value.slice(end + 2);
+      inQuotes.focus();
+      inQuotes.setSelectionRange(start - 2, end - 2);
     } else {
       const wrapped = '**' + selected + '**';
-      inText.value = value.slice(0, start) + wrapped + value.slice(end);
-      sync();
-      inText.focus();
-      inText.setSelectionRange(start, start + wrapped.length);
+      inQuotes.value = value.slice(0, start) + wrapped + value.slice(end);
+      inQuotes.focus();
+      inQuotes.setSelectionRange(start, start + wrapped.length);
     }
+    refreshFromTextarea(true);
   }
   btnBold.addEventListener('click', toggleBold);
-  inText.addEventListener('keydown', (e) => {
+  inQuotes.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
       e.preventDefault();
       toggleBold();
@@ -543,8 +661,12 @@
   });
 
   btnTagline.addEventListener('click', () => {
-    inText.value = 'Becoming dangerous through fundamentals \u{1F512}. \u2014 CyberJKD';
-    sync();
+    const tagline = 'Becoming dangerous through fundamentals \u{1F512}. \u2014 CyberJKD';
+    const current = inQuotes.value.trim();
+    inQuotes.value = current ? current + '\n---\n' + tagline : tagline;
+    refreshFromTextarea(false);
+    currentIndex = quotes.length - 1;
+    renderPreview();
   });
 
   document.querySelectorAll('[data-theme-choice]').forEach(btn => {
@@ -604,14 +726,11 @@
     img.src = dataUrl;
   }
 
-  // Restore a previously saved avatar for this browser, if any.
   (function restoreAvatar() {
     try {
       const saved = localStorage.getItem('cyberjkd_avatar');
       if (saved) applyAvatar(saved);
-    } catch (err) {
-      // storage unavailable — no default avatar, that's fine
-    }
+    } catch (err) {}
   })();
 
   function saveSettings() {
@@ -625,9 +744,7 @@
         exportSize: exportSize
       };
       localStorage.setItem('cyberjkd_settings', JSON.stringify(settings));
-    } catch (err) {
-      // storage unavailable — settings just won't persist this session
-    }
+    } catch (err) {}
   }
 
   function restoreSettings() {
@@ -655,9 +772,7 @@
           b.dataset.active = String(b.dataset.sizeChoice === exportSize);
         });
       }
-    } catch (err) {
-      // corrupted or unavailable — just fall back to defaults
-    }
+    } catch (err) {}
   }
 
   restoreSettings();
@@ -695,76 +810,6 @@
     return new Promise((resolve) => finalCanvas.toBlob(resolve, 'image/png'));
   }
 
-  downloadBtn.addEventListener('click', async () => {
-    downloadBtn.disabled = true;
-    const originalLabel = downloadBtn.textContent;
-    downloadBtn.textContent = 'Rendering...';
-    try {
-      const blob = await renderCardBlob();
-      const filename = 'quote-card-' + Date.now() + '.png';
-      if (downloadsApi) {
-        const arrayBuf = await blob.arrayBuffer();
-        try {
-          await downloadsApi.save({ filename, data: arrayBuf });
-        } catch (err) {
-          fallbackDownload(blob, filename);
-        }
-      } else {
-        fallbackDownload(blob, filename);
-      }
-    } catch (err) {
-      alert('Render failed — try again.');
-    } finally {
-      downloadBtn.disabled = false;
-      downloadBtn.textContent = originalLabel;
-    }
-  });
-
-  const batchBtn = $('btn-batch');
-  const inBatch = $('in-batch');
-  batchBtn.addEventListener('click', async () => {
-    const quotes = inBatch.value.split(/\n[ \t]*-{3,}[ \t]*\n/).map(q => q.trim()).filter(Boolean);
-    if (!quotes.length) { alert('Paste at least one quote into the batch box first.'); return; }
-
-    const originalText = inText.value;
-    batchBtn.disabled = true;
-    downloadBtn.disabled = true;
-    const originalLabel = batchBtn.textContent;
-
-    try {
-      const zip = new JSZip();
-      for (let i = 0; i < quotes.length; i++) {
-        batchBtn.textContent = `Rendering ${i + 1} / ${quotes.length}...`;
-        inText.value = quotes[i];
-        sync();
-        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-        const blob = await renderCardBlob();
-        zip.file(`quote-card-${String(i + 1).padStart(2, '0')}.png`, blob);
-      }
-      batchBtn.textContent = 'Zipping...';
-      const zipBlob = await zip.generateAsync({ type: 'blob' });
-      const filename = 'cyberjkd-quote-cards-' + Date.now() + '.zip';
-      if (downloadsApi) {
-        const arrayBuf = await zipBlob.arrayBuffer();
-        try {
-          await downloadsApi.save({ filename, data: arrayBuf });
-        } catch (err) {
-          fallbackDownload(zipBlob, filename);
-        }
-      } else {
-        fallbackDownload(zipBlob, filename);
-      }
-    } catch (err) {
-      alert('Batch render failed — try again.');
-    } finally {
-      inText.value = originalText;
-      sync();
-      batchBtn.disabled = false;
-      downloadBtn.disabled = false;
-      batchBtn.textContent = originalLabel;
-    }
-  });
-
   function fallbackDownload(blob, filename) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -776,7 +821,65 @@
     URL.revokeObjectURL(url);
   }
 
-  sync();
+  async function saveBlob(blob, filename) {
+    if (downloadsApi) {
+      try {
+        await downloadsApi.save({ filename, data: await blob.arrayBuffer() });
+        return;
+      } catch (err) {}
+    }
+    fallbackDownload(blob, filename);
+  }
+
+  downloadBtn.addEventListener('click', async () => {
+    downloadBtn.disabled = true;
+    const originalLabel = downloadBtn.textContent;
+    downloadBtn.textContent = 'Rendering...';
+    try {
+      const blob = await renderCardBlob();
+      await saveBlob(blob, 'quote-card-' + Date.now() + '.png');
+    } catch (err) {
+      alert('Render failed — try again.');
+    } finally {
+      downloadBtn.disabled = false;
+      downloadBtn.textContent = originalLabel;
+    }
+  });
+
+  downloadAllBtn.addEventListener('click', async () => {
+    if (quotes.length < 2) {
+      downloadBtn.click();
+      return;
+    }
+    downloadAllBtn.disabled = true;
+    downloadBtn.disabled = true;
+    const originalLabel = downloadAllBtn.textContent;
+    const originalIndex = currentIndex;
+    try {
+      const zip = new JSZip();
+      for (let i = 0; i < quotes.length; i++) {
+        downloadAllBtn.textContent = `Rendering ${i + 1} / ${quotes.length}...`;
+        currentIndex = i;
+        renderPreview();
+        await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+        const blob = await renderCardBlob();
+        zip.file(`quote-card-${String(i + 1).padStart(2, '0')}.png`, blob);
+      }
+      downloadAllBtn.textContent = 'Zipping...';
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      await saveBlob(zipBlob, 'cyberjkd-quote-cards-' + Date.now() + '.zip');
+    } catch (err) {
+      alert('Batch render failed — try again.');
+    } finally {
+      currentIndex = originalIndex;
+      renderPreview();
+      downloadAllBtn.disabled = false;
+      downloadBtn.disabled = false;
+      downloadAllBtn.textContent = originalLabel;
+    }
+  });
+
+  refreshFromTextarea(false);
 </script>
 
 </body>
