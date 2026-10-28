@@ -1,8 +1,6 @@
-# Place at: .github/workflows/link-check.yml  (in each repo you want checked)
-# Catches broken INTERNAL + GitHub links on every push and weekly.
-# Social / video / Google-Docs links and mailto are excluded on purpose:
-# they return 403/999 to CI bots (LinkedIn, X, Instagram, Facebook, YouTube,
-# Google Docs), which would fail the run even though they work for real users.
+# Place at: .github/workflows/link-check.yml
+# Checks internal + GitHub links on every push and weekly.
+# Exclusions live in .lycheeignore at the repo root (auto-read by lychee).
 name: Link Check
 
 on:
@@ -10,7 +8,7 @@ on:
   pull_request:
   schedule:
     - cron: '0 9 * * 1'   # every Monday 09:00 UTC
-  workflow_dispatch:       # run manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   linkCheck:
@@ -21,18 +19,7 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
-            --verbose --no-progress
+            --no-progress --max-concurrency 4
             --accept 200,206,301,302,429
-            --max-concurrency 4
-            --exclude-mail
-            --exclude 'linkedin\.com'
-            --exclude 'x\.com'
-            --exclude 'twitter\.com'
-            --exclude 'facebook\.com'
-            --exclude 'instagram\.com'
-            --exclude 'youtube\.com'
-            --exclude 'youtu\.be'
-            --exclude 'docs\.google\.com'
-            --exclude 'calendly\.com'
             './**/*.html' './**/*.md'
           fail: true
