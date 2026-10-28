@@ -1,0 +1,25 @@
+# Place at: .github/workflows/link-check.yml  (in each repo you want checked)
+# Catches broken links in HTML/Markdown automatically — on every push and weekly.
+name: Link Check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 9 * * 1'   # every Monday 09:00 UTC
+  workflow_dispatch:       # lets you run it manually from the Actions tab
+
+jobs:
+  linkCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose --no-progress
+            --accept 200,206,429
+            --max-concurrency 4
+            './**/*.html' './**/*.md'
+          fail: true
