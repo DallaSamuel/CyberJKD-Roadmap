@@ -1,0 +1,77 @@
+# Place at: .github/workflows/github-traffic.yml  (in ONE repo, e.g. CyberJKD-Roadmap)
+# Pulls traffic for ALL your repos daily and pushes it to your Analytics web app.
+#
+# Required repo secrets (Settings > Secrets and variables > Actions):
+#   GH_TRAFFIC_TOKEN  = a GitHub PAT (classic, scope: repo) — needed to read traffic
+#   ANALYTICS_URL     = your Apps Script /exec URL
+#   ANALYTICS_KEY     = the same word as DASH_KEY in Code.gs (default: cyberjkd)
+name: GitHub Traffic Sync
+
+on:
+  schedule:
+    - cron: '17 6 * * *'   # daily ~06:17 UTC
+  workflow_dispatch:        # lets you run it now from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull traffic and push to Analytics Hub
+        env:
+          GH_TOKEN: ${{ secrets.GH_TRAFFIC_TOKEN }}
+          ANALYTICS_URL: ${{ secrets.ANALYTICS_URL }}
+          ANALYTICS_KEY: ${{ secrets.ANALYTICS_KEY }}
+        run: |
+          node <<'EOF'
+          (async () => {
+            const token = process.env.GH_TOKEN;
+            if (!token) throw new Error('GH_TRAFFIC_TOKEN secret missing');
+            const H = { Authorization: 'token ' + token, Accept: 'application/vnd.github+json', 'User-Agent': 'cyberjkd-traffic' };
+            async function gh(path) {
+              const r = await fetch('https://api.github.com' + path, { headers: H });
+              if (!r.ok) throw new Error(path + ' -> ' + r.status);
+              return r.json();
+            }
+            // discover all repos owned by the token user
+            let repos = [], page = 1;
+            while (true) {
+              const batch = await gh('/user/repos?per_page=100&affiliation=owner&page=' + page);
+              repos = repos.concat(batch);
+              if (batch.length < 100) break;
+              page++;
+            }
+            repos = repos.filter(r => !r.fork && !r.archived);
+            const daily = [], repoTotals = [], refMap = {}, pathMap = {};
+            for (const r of repos) {
+              const full = r.full_name;
+              try {
+                const [views, clones, refs, paths] = await Promise.all([
+                  gh('/repos/' + full + '/traffic/views'),
+                  gh('/repos/' + full + '/traffic/clones'),
+                  gh('/repos/' + full + '/traffic/popular/referrers'),
+                  gh('/repos/' + full + '/traffic/popular/paths')
+                ]);
+                repoTotals.push({ repo: r.name, views: views.count || 0, uniques: views.uniques || 0, clones: clones.count || 0 });
+                const cloneByDay = {};
+                (clones.clones || []).forEach(c => { cloneByDay[c.timestamp.slice(0, 10)] = c; });
+                (views.views || []).forEach(v => {
+                  const d = v.timestamp.slice(0, 10), c = cloneByDay[d];
+                  daily.push({ repo: r.name, date: d, views: v.count || 0, uniques: v.uniques || 0, clones: c ? c.count : 0, uniqueClones: c ? c.uniques : 0 });
+                });
+                (refs || []).forEach(x => { refMap[x.referrer] = (refMap[x.referrer] || 0) + (x.count || 0); });
+                (paths || []).forEach(x => {
+                  if (!pathMap[x.path]) pathMap[x.path] = { path: x.path, title: x.title || '', count: 0, uniques: 0 };
+                  pathMap[x.path].count += x.count || 0; pathMap[x.path].uniques += x.uniques || 0;
+                });
+              } catch (e) { console.log('skip ' + full + ': ' + e.message); }
+            }
+            const referrers = Object.keys(refMap).map(k => ({ referrer: k, count: refMap[k] })).sort((a, b) => b.count - a.count).slice(0, 10);
+            const pathsArr = Object.values(pathMap).sort((a, b) => b.count - a.count).slice(0, 12);
+            const payload = { kind: 'github', key: process.env.ANALYTICS_KEY, daily, repos: repoTotals, referrers, paths: pathsArr };
+            const resp = await fetch(process.env.ANALYTICS_URL, {
+              method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+              body: JSON.stringify(payload), redirect: 'follow'
+            });
+            console.log('Synced ' + repoTotals.length + ' repos, ' + daily.length + ' daily rows. POST status ' + resp.status);
+          })().catch(e => { console.error(e); process.exit(1); });
+          EOF
