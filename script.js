@@ -42,10 +42,97 @@ function updateProgressCounts() {
 
 updateProgressCounts();
 
+// Fill the mission-status counters from the real rows (drift-proof).
+function fillStats() {
+  const rows = [...document.querySelectorAll('.op-row')];
+  const gh = rows.filter(r => r.querySelector('a.done-badge[href*="github.com"]'));
+  const complete = gh.filter(r => r.classList.contains('done')).length;
+  const c = document.getElementById('statComplete');
+  const d = document.getElementById('statDocumented');
+  if (c) c.textContent = complete;
+  if (d) d.textContent = gh.length;
+}
+fillStats();
+
+// Honest per-phase progress strip — fills each segment by real completion.
+function fillStrip() {
+  const segs = document.querySelectorAll('#progressStrip .strip-seg');
+  const legend = document.querySelectorAll('#stripLegend span');
+  document.querySelectorAll('.phase-inner').forEach((ph, i) => {
+    const rows = ph.querySelectorAll('.ops-grid .op-row');
+    const total = rows.length || 1;
+    const done = Array.from(rows).filter(r => r.classList.contains('done')).length;
+    const pct = Math.round((done / total) * 100);
+    const bar = segs[i] && segs[i].querySelector('i');
+    if (bar) bar.style.width = pct + '%';
+    if (legend[i]) legend[i].textContent = 'P0' + (i + 1) + ' ' + pct + '%';
+  });
+}
+setTimeout(fillStrip, 120);
+
+// Filter labs by status across every phase.
+function filterOps(mode) {
+  document.querySelectorAll('.filter-chip').forEach(b => b.classList.toggle('active', b.dataset.f === mode));
+  const match = (r) =>
+    mode === 'all'  ? true :
+    mode === 'done' ? r.classList.contains('done') :
+    mode === 'wip'  ? r.classList.contains('wip')  :
+    (!r.classList.contains('done') && !r.classList.contains('wip'));
+  document.querySelectorAll('.phase-inner').forEach(ph => {
+    let any = false;
+    ph.querySelectorAll('.op-row').forEach(r => {
+      const show = match(r);
+      r.style.display = show ? '' : 'none';
+      if (show) any = true;
+    });
+    if (mode === 'all') {
+      ph.style.display = '';
+    } else {
+      ph.style.display = any ? '' : 'none';
+      setExpanded(ph, any);
+    }
+  });
+}
+
+// Scroll-driven UI: active phase chip (deterministic) + back-to-top.
+const navChips = {};
+document.querySelectorAll('.phase-nav-chip').forEach(c => {
+  navChips[c.getAttribute('href').replace('#', '')] = c;
+});
+function updateActiveChip() {
+  // The active phase is the last one whose top has scrolled above the nav line.
+  let current = null;
+  document.querySelectorAll('.phase-inner').forEach(p => {
+    if (p.getBoundingClientRect().top - 90 <= 0) current = p.id;
+  });
+  Object.keys(navChips).forEach(id => navChips[id].classList.toggle('active', id === current));
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function onScroll() {
+  const btn = document.getElementById('backToTop');
+  if (btn) btn.classList.toggle('show', window.scrollY > 600);
+  updateActiveChip();
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('load', updateActiveChip);
+
 function toggle(el) {
   const isExpanded = !el.classList.contains('expanded');
   setExpanded(el, isExpanded);
   saveState();
+}
+
+// Phase quick-nav: open the target phase, remember it, then scroll to it.
+function jumpTo(event, id) {
+  if (event) event.preventDefault();
+  const target = document.getElementById(id);
+  if (!target) return;
+  setExpanded(target, true);
+  saveState();
+  setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40);
+  if (history.replaceState) history.replaceState(null, '', '#' + id);
 }
 
 function expandAll() {

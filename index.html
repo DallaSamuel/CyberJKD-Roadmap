@@ -8,16 +8,36 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="CyberJKD Roadmap — Becoming Dangerous Through Fundamentals">
 <meta property="og:description" content="A public, project-by-project roadmap to Cloud Security Engineer — labs, certs, and documented work across five phases.">
-<meta property="og:image" content="./img/CyberJKD.png">
+<meta property="og:image" content="https://dallasamuel.github.io/CyberJKD-Roadmap/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://dallasamuel.github.io/CyberJKD-Roadmap/">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CyberJKD Roadmap — Becoming Dangerous Through Fundamentals">
 <meta name="twitter:description" content="A public, project-by-project roadmap to Cloud Security Engineer — labs, certs, and documented work across five phases.">
-<meta name="twitter:image" content="./img/CyberJKD.png">
+<meta name="twitter:image" content="https://dallasamuel.github.io/CyberJKD-Roadmap/og-cover.png">
 <link rel="canonical" href="https://dallasamuel.github.io/CyberJKD-Roadmap/">
 <meta name="theme-color" content="#050810">
-<link rel="stylesheet" href="styles.css?v=2.7">
+<link rel="stylesheet" href="styles.css?v=3.1">
 <link rel="icon" type="image/png" href="./img/CyberJKD.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dalla Samuel",
+  "alternateName": "CyberJKD",
+  "url": "https://dallasamuel.github.io/CyberJKD-Roadmap/",
+  "jobTitle": "Cloud Security Engineering Student",
+  "description": "Final-year Cloud Security Engineering student building toward a Cloud Security Engineer / SOC Analyst role through documented, hands-on labs.",
+  "sameAs": [
+    "https://www.linkedin.com/in/dallasamuel",
+    "https://github.com/DallaSamuel",
+    "https://www.youtube.com/@CyberJKD_DS",
+    "https://x.com/CyberJKD"
+  ],
+  "knowsAbout": ["Microsoft Azure","Terraform","Cloud Security","SIEM","Splunk","Microsoft Sentinel","Active Directory","SOC Analysis","Incident Response","Infrastructure as Code"]
+}
+</script>
 </head>
 <body>
 <div class="container">
@@ -27,27 +47,49 @@
     <div class="logo-container">
       <img src="./img/CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
     </div>
-    <div class="logo-line">// CyberJKD · Master Roadmap · v2.8</div>
+    <div class="logo-line">// CyberJKD · Master Roadmap · v3.1</div>
     <div class="title">Cyber<span>JKD</span></div>
     <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
     <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
   </div>
 
   <!-- PROGRESS STRIP -->
-  <div class="progress-strip">
-    <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.0s"></div>
-    <div class="strip-segment active" style="--seg-color:#00aaff;--seg-delay:1.1s"></div>
-    <div class="strip-segment active" style="--seg-color:#00ddff;--seg-delay:1.2s"></div>
-    <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.3s"></div>
-    <div class="strip-segment active" style="--seg-color:#00ffcc;--seg-delay:1.4s"></div>
-    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.5s"></div>
-    <div class="strip-segment active" style="--seg-color:#ff3355;--seg-delay:1.6s"></div>
-    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.7s"></div>
-    <div class="strip-segment active" style="--seg-color:#aa55ff;--seg-delay:1.8s"></div>
-    <div class="strip-segment active" style="--seg-color:#ffcc00;--seg-delay:1.9s"></div>
+  <div class="progress-strip" id="progressStrip" aria-label="Overall progress by phase">
+    <div class="strip-seg" style="--c:#00aaff"><i></i></div>
+    <div class="strip-seg" style="--c:#00ddff"><i></i></div>
+    <div class="strip-seg" style="--c:#00ffcc"><i></i></div>
+    <div class="strip-seg" style="--c:#ff3355"><i></i></div>
+    <div class="strip-seg" style="--c:#aa55ff"><i></i></div>
+    <div class="strip-seg" style="--c:#ffaa00"><i></i></div>
+  </div>
+  <div class="strip-legend" id="stripLegend">
+    <span>P01</span><span>P02</span><span>P03</span><span>P04</span><span>P05</span><span>P06</span>
   </div>
 
+  <div class="mission-status" aria-label="Portfolio status">
+    <div class="ms-cell" style="border-top-color:var(--green)"><div class="ms-num" id="statComplete" style="color:var(--green)">19</div><div class="ms-lab">Labs Complete</div></div>
+    <div class="ms-cell" style="border-top-color:var(--blue)"><div class="ms-num" id="statDocumented">20</div><div class="ms-lab">Documented</div></div>
+    <div class="ms-cell" style="border-top-color:var(--purple)"><div class="ms-num">6</div><div class="ms-lab">Phases</div></div>
+    <div class="ms-cell" style="border-top-color:var(--cyan)"><div class="ms-num ms-sm">AZ-900 → SC-200</div><div class="ms-lab">Cert Path</div></div>
+  </div>
+
+  <nav class="phase-nav" aria-label="Jump to phase">
+    <a class="phase-nav-chip" href="#phase-01" onclick="jumpTo(event,'phase-01')" style="--c:#00aaff"><span class="pn-dot"></span>01 · Foundation</a>
+    <a class="phase-nav-chip" href="#phase-02" onclick="jumpTo(event,'phase-02')" style="--c:#00ddff"><span class="pn-dot"></span>02 · Defense</a>
+    <a class="phase-nav-chip" href="#phase-03" onclick="jumpTo(event,'phase-03')" style="--c:#00ffcc"><span class="pn-dot"></span>03 · Azure</a>
+    <a class="phase-nav-chip" href="#phase-04" onclick="jumpTo(event,'phase-04')" style="--c:#ff3355"><span class="pn-dot"></span>04 · Offensive</a>
+    <a class="phase-nav-chip" href="#phase-05" onclick="jumpTo(event,'phase-05')" style="--c:#aa55ff"><span class="pn-dot"></span>05 · Engineering</a>
+    <a class="phase-nav-chip" href="#phase-06" onclick="jumpTo(event,'phase-06')" style="--c:#ffaa00"><span class="pn-dot"></span>06 · Mentorship</a>
+  </nav>
+
   <div class="timeline-controls">
+    <div class="filters" aria-label="Filter labs by status">
+      <span class="filters-label">Filter</span>
+      <button type="button" class="filter-chip active" data-f="all" onclick="filterOps('all')">All</button>
+      <button type="button" class="filter-chip" data-f="done" onclick="filterOps('done')">✓ Done</button>
+      <button type="button" class="filter-chip" data-f="wip" onclick="filterOps('wip')">⏳ In progress</button>
+      <button type="button" class="filter-chip" data-f="todo" onclick="filterOps('todo')">◦ Planned / Todo</button>
+    </div>
     <button type="button" class="timeline-btn" onclick="expandAll()">▾ Expand All</button>
     <button type="button" class="timeline-btn" onclick="collapseAll()">▸ Collapse All</button>
   </div>
@@ -684,8 +726,8 @@
             <div class="phase-identity">// Identity: Precision Striker</div>
           </div>
           <div class="phase-right">
-            <div class="phase-progress wip">0 / 5 DONE</div>
-            <div class="phase-status-badge in-progress">— PENDING</div>
+            <div class="phase-progress wip">5 / 10 DONE</div>
+            <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
             <div class="phase-timeline-badge">MONTHS 12–18</div>
             <div class="expand-icon">▾</div>
           </div>
@@ -707,7 +749,79 @@
             </div>
 
             <div class="phase-divider"></div>
-            <div class="section-label">// Mission Objectives</div>
+            <div class="section-label">// Completed — CYB 405 Ethical Hacking Coursework (Miva Open University)</div>
+            <div class="phase-note"><strong>Graded mid-semester coursework, documented to portfolio standard.</strong> Five labs run end-to-end inside an isolated, air-gapped VirtualBox Host-Only range (Kali · Metasploitable2 · Windows Server · 192.168.56.0/24). Every offensive technique is paired with its defensive detection and remediation — the One Rule, applied.</div>
+            <div class="ops-grid">
+
+              <div class="op-row done">
+                <div class="op-num done-num">01</div>
+                <div class="op-content">
+                  <div class="op-text">Lab 01 — Virtual Lab Setup &amp; Configuration</div>
+                  <div class="op-sub">isolated 3-VM air-gapped Host-Only range · Kali · Metasploitable2 · Windows Server · scoped &amp; authorized</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ 4–5 Aug 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-04/cyb405-ethical_hacking_coursework_(miva)/cyb405_lab-01_virtual-lab-setup-%26-configuration" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/MrgIUkOs6mE" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="op-row done">
+                <div class="op-num done-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">Lab 02 — Footprinting &amp; Reconnaissance</div>
+                  <div class="op-sub">WHOIS/DNS within air-gap limits · banner grabbing · full nmap service/version sweep · Nikto web scan</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ 5–6 Aug 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-04/cyb405-ethical_hacking_coursework_(miva)/cyb405_lab-02_footprinting-%26-reconnaissance" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/-hFYRQLPGkE" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="op-row done">
+                <div class="op-num done-num">03</div>
+                <div class="op-content">
+                  <div class="op-text">Lab 03 — Network Scanning &amp; Enumeration</div>
+                  <div class="op-sub">subnet host sweep · SMB/RPC enumeration cross-verified across enum4linux · smbclient · nmap NSE · vulnerability scan</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ 7–8 Aug 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-04/cyb405-ethical_hacking_coursework_(miva)/cyb405_lab-03_network-scanning-%26-enumeration" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/VwOAvTOoHn0" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="op-row done">
+                <div class="op-num done-num">04</div>
+                <div class="op-content">
+                  <div class="op-text">Lab 04 — System Hacking &amp; Privilege Escalation</div>
+                  <div class="op-sub">exploited the vsftpd 2.3.4 backdoor to root via Metasploit · anti-forensics finding · full defensive remediation plan</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ 11 Aug 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-04/cyb405-ethical_hacking_coursework_(miva)/cyb405_lab-04_system-hacking%20-%26-privilege-escalation" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/mrZ21U-3NNs" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="op-row done" style="grid-column: 1 / -1;">
+                <div class="op-num done-num">05</div>
+                <div class="op-content">
+                  <div class="op-text">Lab 05 — Malware Analysis &amp; Reverse Engineering</div>
+                  <div class="op-sub">static + dynamic analysis of a benign self-authored sample in Ghidra · strings / readelf / strace / tcpdump · IOC table + Suricata detection rule</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ 13–14 Aug 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-04/cyb405-ethical_hacking_coursework_(miva)/cyb405_lab-05_malware-analysis-%26-reverse-engineering" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/iwXwIbkMJqc" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="phase-divider"></div>
+            <div class="section-label">// Mission Objectives — Self-Directed Offensive (next)</div>
             <div class="ops-grid">
               <div class="op-row">
                 <div class="op-num">01</div>
@@ -797,7 +911,7 @@
           </div>
           <div class="phase-right">
             <div class="phase-progress wip">0 / 8 DONE</div>
-            <div class="phase-status-badge in-progress">— PENDING</div>
+            <div class="phase-status-badge pending">— PENDING</div>
             <div class="phase-timeline-badge">MONTHS 18–24</div>
             <div class="expand-icon">▾</div>
           </div>
@@ -972,7 +1086,7 @@
             <div class="phase-identity">// Identity: Community-Trained Practitioner</div>
           </div>
           <div class="phase-right">
-            <div class="phase-progress wip">2 / 10 DONE</div>
+            <div class="phase-progress wip">3 / 10 DONE</div>
             <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
             <div class="phase-timeline-badge">PARALLEL TRACK</div>
             <div class="expand-icon">▾</div>
@@ -1025,7 +1139,7 @@
                   <div class="op-sub">VM + AD DS + forest promotion, all from one terraform apply · Custom Script Extension · real SKU/quota/state-drift troubleshooting documented</div>
                   <div class="done-badges">
                     <span class="done-badge">✓ Sep 15 2026</span>
-                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-06/cloud-tech-techniques/cloud-system-admin-accelerator/terraform-ad-dc" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-06/cloud-tech-techniques/cloud-system-admin-accelerator/lab-01_terraform-ad-dc" target="_blank" class="done-badge">⌥ GitHub</a>
                     <a href="https://youtu.be/rVksbVzXgRA" target="_blank" class="done-badge">▶ YouTube</a>
                   </div>
                 </div>
@@ -1038,19 +1152,22 @@
                   <div class="op-sub">Git · 6 core extensions · Remote-SSH into the Kali VM · real git clone buffer-error and SSH connection-refused troubleshooting documented</div>
                   <div class="done-badges">
                     <span class="done-badge">✓ Sep 18 2026</span>
-                    <a href="https://tinyurl.com/vscode-remote-ssh-setup" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-06/cloud-tech-techniques/cloud-system-admin-accelerator/lab-02_vscode-remote-ssh-setup" target="_blank" class="done-badge">⌥ GitHub</a>
                     <a href="https://youtu.be/K8Qd1uASNPE" target="_blank" class="done-badge">▶ YouTube</a>
                   </div>
                 </div>
               </div>
 
-              <div class="op-row">
-                <div class="op-num">03</div>
+              <div class="op-row done">
+                <div class="op-num done-num">03</div>
                 <div class="op-content">
-                  <div class="op-text">NTFS Lab</div>
-                  <div class="op-sub">file system permissions · inheritance · effective access</div>
+                  <div class="op-text">Hardened NTFS File Server on Azure</div>
+                  <div class="op-sub">three-tier Windows environment via Terraform · per-user Key Vault secrets · AGDLP NTFS model · Access-Based Enumeration · FSRM quotas · object-access auditing · Checkov 31 passed / 0 failed</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ Sep 21–24 2026</span>
+                    <a href="https://github.com/DallaSamuel/CyberJKD-Labs/tree/main/phase-06/cloud-tech-techniques/cloud-system-admin-accelerator/lab-03_ntfs-file-server" target="_blank" class="done-badge">⌥ GitHub</a>
+                  </div>
                 </div>
-                <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
                 <div class="op-num">04</div>
@@ -1198,10 +1315,14 @@
     </div>
 
     <div class="footer-hashtags">#CyberJKD &nbsp;#CloudTechExec &nbsp;#CloudDevSecOps &nbsp;#NetworkChuck</div>
-    <div class="footer-updated">Last updated: October 13, 2026</div>
+    <div class="footer-updated">Last updated: October 28, 2026</div>
+    <div class="footer-updated" style="margin-top:4px;">Privacy-friendly analytics · no raw IP stored.</div>
   </div>
 
+  <button type="button" id="backToTop" class="back-to-top" aria-label="Back to top" onclick="scrollToTop()">↑</button>
+
 </div>
-<script src="script.js?v=2.7"></script>
+<script src="script.js?v=3.1"></script>
+<script src="visitor-tracker.js"></script>
 </body>
 </html>
