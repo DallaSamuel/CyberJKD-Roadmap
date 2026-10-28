@@ -27,7 +27,7 @@
     <div class="logo-container">
       <img src="./img/CyberJKD.png" alt="CyberJKD Logo" class="site-logo">
     </div>
-    <div class="logo-line">// CyberJKD · Master Roadmap · v2.7</div>
+    <div class="logo-line">// CyberJKD · Master Roadmap · v2.8</div>
     <div class="title">Cyber<span>JKD</span></div>
     <div class="subtitle">FOUNDATIONS → DEFENSE → CLOUD → OFFENSE → ENGINEERING</div>
     <div class="philosophy-bar">⚡ &nbsp; BECOMING DANGEROUS THROUGH FUNDAMENTALS &nbsp; ⚡</div>
@@ -379,7 +379,7 @@
             <div class="phase-identity">// Identity: Cloud-Aware Security Engineer</div>
           </div>
           <div class="phase-right">
-            <div class="phase-progress wip">2 / 18 DONE</div>
+            <div class="phase-progress wip">2 / 19 DONE</div>
             <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
             <div class="phase-timeline-badge">MONTHS 9–15</div>
             <div class="expand-icon">▾</div>
@@ -471,7 +471,7 @@
                 <div class="op-num">04</div>
                 <div class="op-content">
                   <div class="op-text">Azure Cost Visibility Dashboard</div>
-                  <div class="op-sub">Cost Management + tiered alerts ($50/$100/$200) + Azure Function weekly comparison report + Workbooks dashboard (plain-language spend by service/resource group/week)</div>
+                  <div class="op-sub">Cost Management + tiered alerts ($50/$100/$200) + Azure Function weekly comparison report + Workbooks dashboard (plain-language spend by service/resource group/week) · showback by team via enforced tag policy · rightsizing recommendations</div>
                 </div>
                 <div class="op-todo">— TODO</div>
               </div>
@@ -480,7 +480,7 @@
                 <div class="op-num">05</div>
                 <div class="op-content">
                   <div class="op-text">Automated Backup System</div>
-                  <div class="op-sub">Blob Storage + versioning + lifecycle policies + daily Logic Apps confirmation</div>
+                  <div class="op-sub">Blob Storage + versioning + lifecycle policies + daily Logic Apps confirmation · customer-managed key encryption (Key Vault) · cross-region replication · tested disaster-recovery restore</div>
                 </div>
                 <div class="op-todo">— TODO</div>
               </div>
@@ -561,7 +561,7 @@
                 <div class="op-num">14</div>
                 <div class="op-content">
                   <div class="op-text">Hub-Spoke Network Architecture + Azure Firewall</div>
-                  <div class="op-sub">hub VNet + spoke VNets · Azure Firewall as centralized control · UDRs to route all spoke traffic through hub · Azure Bastion for secure VM access · Terraform IaC deployment · network segmentation + zero trust perimeter</div>
+                  <div class="op-sub">hub VNet + spoke VNets · Azure Firewall as centralized control · UDRs to route all spoke traffic through hub · Azure Bastion for secure VM access · Terraform IaC deployment · network segmentation + zero trust perimeter · private endpoints for PaaS services · optional hybrid VPN to on-prem (cost-gated)</div>
                 </div>
                 <div class="op-todo">— TODO</div>
               </div>
@@ -597,9 +597,18 @@
                 <div class="op-num" style="color:var(--cyan)">18</div>
                 <div class="op-content">
                   <div class="op-text" style="color:#a0e8d8">Portfolio Triad III — CI/CD Pipeline (Terraform + GitHub Actions)</div>
-                  <div class="op-sub">Terraform repo from Project 16 connected to GitHub Actions · pipeline runs on every push · terraform validate + plan on commit · manual approval gate before apply · terraform apply executes + logs results · branch protection rules block unreviewed merges. Business framing: every infrastructure change goes through a controlled, auditable process that prevents unauthorized or untested changes reaching production.</div>
+                  <div class="op-sub">Terraform repo from Project 16 connected to GitHub Actions · pipeline runs on every push · terraform validate + plan on commit · manual approval gate before apply · terraform apply executes + logs results · branch protection rules block unreviewed merges. Business framing: every infrastructure change goes through a controlled, auditable process that prevents unauthorized or untested changes reaching production. Extension: multi-environment promotion (dev → staging → prod) with policy checks and automatic rollback.</div>
                 </div>
                 <div class="op-todo" style="color:var(--cyan)">— PLANNED</div>
+              </div>
+
+              <div class="op-row">
+                <div class="op-num">19</div>
+                <div class="op-content">
+                  <div class="op-text">Multi-AZ Auto-Scaling Fleet</div>
+                  <div class="op-sub">VM Scale Set across availability zones · load balancer with health checks · autoscale rules · zero-downtime rolling upgrades · built from the Project 15 golden image · Terraform IaC deployment</div>
+                </div>
+                <div class="op-todo">— TODO</div>
               </div>
 
             </div>
@@ -620,7 +629,7 @@
                 </div>
                 <div class="value-pillar">
                   <div class="vp-name">Monitoring &amp; Reliability</div>
-                  <div class="vp-proj">→ Project 06</div>
+                  <div class="vp-proj">→ Projects 06, 19</div>
                 </div>
                 <div class="value-pillar">
                   <div class="vp-name">AI &amp; Automation</div>
@@ -963,7 +972,7 @@
             <div class="phase-identity">// Identity: Community-Trained Practitioner</div>
           </div>
           <div class="phase-right">
-            <div class="phase-progress wip">1 / 9 DONE</div>
+            <div class="phase-progress wip">2 / 10 DONE</div>
             <div class="phase-status-badge in-progress">⏳ IN PROGRESS</div>
             <div class="phase-timeline-badge">PARALLEL TRACK</div>
             <div class="expand-icon">▾</div>
@@ -1022,8 +1031,21 @@
                 </div>
               </div>
 
+              <div class="op-row done" style="grid-column: 1 / -1;">
+                <div class="op-num done-num">02</div>
+                <div class="op-content">
+                  <div class="op-text">VS Code Remote-SSH Setup (VSCode Guide)</div>
+                  <div class="op-sub">Git · 6 core extensions · Remote-SSH into the Kali VM · real git clone buffer-error and SSH connection-refused troubleshooting documented</div>
+                  <div class="done-badges">
+                    <span class="done-badge">✓ Sep 18 2026</span>
+                    <a href="https://tinyurl.com/vscode-remote-ssh-setup" target="_blank" class="done-badge">⌥ GitHub</a>
+                    <a href="https://youtu.be/K8Qd1uASNPE" target="_blank" class="done-badge">▶ YouTube</a>
+                  </div>
+                </div>
+              </div>
+
               <div class="op-row">
-                <div class="op-num">02</div>
+                <div class="op-num">03</div>
                 <div class="op-content">
                   <div class="op-text">NTFS Lab</div>
                   <div class="op-sub">file system permissions · inheritance · effective access</div>
@@ -1031,7 +1053,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">03</div>
+                <div class="op-num">04</div>
                 <div class="op-content">
                   <div class="op-text">RBAC Access Control Lab</div>
                   <div class="op-sub">role assignments · scope · least-privilege access design</div>
@@ -1039,7 +1061,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">04</div>
+                <div class="op-num">05</div>
                 <div class="op-content">
                   <div class="op-text">AUM Lab</div>
                   <div class="op-sub">Azure Update Management · patch compliance · maintenance windows</div>
@@ -1047,7 +1069,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">05</div>
+                <div class="op-num">06</div>
                 <div class="op-content">
                   <div class="op-text">AZ-104 Lab 1 — Virtual Machines &amp; RBAC</div>
                   <div class="op-sub">VM deployment · role assignments</div>
@@ -1055,7 +1077,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">06</div>
+                <div class="op-num">07</div>
                 <div class="op-content">
                   <div class="op-text">AZ-104 Lab 2 — Virtual Networks &amp; Secure Storage</div>
                   <div class="op-sub">VNets · storage account security</div>
@@ -1063,7 +1085,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">07</div>
+                <div class="op-num">08</div>
                 <div class="op-content">
                   <div class="op-text">AZ-104 Lab 3 — Monitoring, Backup &amp; Recovery</div>
                   <div class="op-sub">Azure Monitor · backup policies · recovery testing</div>
@@ -1071,7 +1093,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row">
-                <div class="op-num">08</div>
+                <div class="op-num">09</div>
                 <div class="op-content">
                   <div class="op-text">AZ-104 Lab 4 — Entra ID &amp; Identity Management</div>
                   <div class="op-sub">Entra ID · identity governance</div>
@@ -1079,7 +1101,7 @@
                 <div class="op-todo">— TODO</div>
               </div>
               <div class="op-row" style="grid-column: 1 / -1;">
-                <div class="op-num">09</div>
+                <div class="op-num">10</div>
                 <div class="op-content">
                   <div class="op-text">AZ-104 Lab 5 — App Service &amp; Autoscaling</div>
                   <div class="op-sub">App Service deployment · autoscale rules</div>
@@ -1176,7 +1198,7 @@
     </div>
 
     <div class="footer-hashtags">#CyberJKD &nbsp;#CloudTechExec &nbsp;#CloudDevSecOps &nbsp;#NetworkChuck</div>
-    <div class="footer-updated">Last updated: September 15, 2026</div>
+    <div class="footer-updated">Last updated: October 13, 2026</div>
   </div>
 
 </div>
