@@ -1,0 +1,17 @@
+# Versioned local assets — the ?v= query makes lychee look for a file that
+# doesn't exist on disk (styles.css?v=3.1), so skip those.
+\?v=
+
+# External sites that work for humans but return 403/999 to CI bots.
+linkedin\.com
+x\.com
+twitter\.com
+facebook\.com
+instagram\.com
+youtube\.com
+youtu\.be
+docs\.google\.com
+calendly\.com
+
+# mailto links
+^mailto:
