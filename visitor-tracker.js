@@ -6,7 +6,7 @@
  * -> Paste your deployed Web App URL into ENDPOINT below.
  */
 (function () {
-  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwuyTLItzCQuo6rOaXgxsDDSx7n8vR9Tq7gUilSBKRR83s8-HsIgjpV4RDHrRR8BoSsWA/exec";  // <-- PASTE your Apps Script /exec URL here
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbwuyTLItzCQuo6rOaXgxsDDSx7n8vR9Tq7gUiISBKRR83s8-HsIgjpV4RDHrRR8BoSsWA/exec";
 
   if (!ENDPOINT) return;
 
