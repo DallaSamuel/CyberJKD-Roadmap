@@ -1,5 +1,8 @@
 # Place at: .github/workflows/link-check.yml  (in each repo you want checked)
-# Catches broken links in HTML/Markdown automatically — on every push and weekly.
+# Catches broken INTERNAL + GitHub links on every push and weekly.
+# Social / video / Google-Docs links and mailto are excluded on purpose:
+# they return 403/999 to CI bots (LinkedIn, X, Instagram, Facebook, YouTube,
+# Google Docs), which would fail the run even though they work for real users.
 name: Link Check
 
 on:
@@ -7,7 +10,7 @@ on:
   pull_request:
   schedule:
     - cron: '0 9 * * 1'   # every Monday 09:00 UTC
-  workflow_dispatch:       # lets you run it manually from the Actions tab
+  workflow_dispatch:       # run manually from the Actions tab
 
 jobs:
   linkCheck:
@@ -19,7 +22,17 @@ jobs:
         with:
           args: >-
             --verbose --no-progress
-            --accept 200,206,429
+            --accept 200,206,301,302,429
             --max-concurrency 4
+            --exclude-mail
+            --exclude 'linkedin\.com'
+            --exclude 'x\.com'
+            --exclude 'twitter\.com'
+            --exclude 'facebook\.com'
+            --exclude 'instagram\.com'
+            --exclude 'youtube\.com'
+            --exclude 'youtu\.be'
+            --exclude 'docs\.google\.com'
+            --exclude 'calendly\.com'
             './**/*.html' './**/*.md'
           fail: true
